@@ -1,6 +1,8 @@
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
+
 #endif
 
 namespace StarterAssets
@@ -10,7 +12,7 @@ namespace StarterAssets
 		[Header("Character Input Values")]
 		public Vector2 move;
 		public Vector2 look;
-		public bool jump;
+		public bool crouch;
 		public bool sprint;
 
 		[Header("Movement Settings")]
@@ -34,9 +36,9 @@ namespace StarterAssets
 			}
 		}
 
-		public void OnJump(InputValue value)
+		public void OnCrouch(InputValue value)
 		{
-			JumpInput(value.isPressed);
+			CrouchInput(value.isPressed);
 		}
 
 		public void OnSprint(InputValue value)
@@ -56,9 +58,9 @@ namespace StarterAssets
 			look = newLookDirection;
 		}
 
-		public void JumpInput(bool newJumpState)
+		public void CrouchInput(bool newJumpState)
 		{
-			jump = newJumpState;
+            crouch = newJumpState;
 		}
 
 		public void SprintInput(bool newSprintState)
@@ -73,7 +75,7 @@ namespace StarterAssets
 
 		private void SetCursorState(bool newState)
 		{
-			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+            Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
 	}
 	

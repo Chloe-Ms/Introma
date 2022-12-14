@@ -1,6 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using Unity.VisualScripting;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
+
 #endif
 
 namespace StarterAssets
@@ -72,9 +76,24 @@ namespace StarterAssets
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
 
-		private const float _threshold = 0.01f;
+        private const float _threshold = 0.01f;
 
-		private bool IsCurrentDeviceMouse
+        [Header("Crouch")]
+        [SerializeField] private float _standingHeight = 2f;
+        [SerializeField] private float _crouchingHeight = 0.5f;
+        [SerializeField] private float _timeToCrouch = 0.25f;
+        [SerializeField] private Vector3 _crouchingCenter = new Vector3(0f,0.5f,0f);
+        [SerializeField] private Vector3 _standingCenter = new Vector3(0f, 1f, 0f);
+        [SerializeField] private Vector3 _standingCenterCollider = new Vector3(0f, 0f, 0f);
+        [SerializeField] private Vector3 _crouchingCenterCollider = new Vector3(0f, -1f, 0f);
+        [SerializeField] private Vector3 _cameraStandingCenter = new Vector3(0f, 1.375f,0f);
+        [SerializeField] private Vector3 _cameraCrouchingCenter = new Vector3(0f, 0.6875f, 0f);
+        private bool _duringCrouchAnimation;
+        private bool _isCrouching;
+        [SerializeField] private CapsuleCollider _collider;
+        [SerializeField] private GameObject _camera;
+
+        private bool IsCurrentDeviceMouse
 		{
 			get
 			{
@@ -108,14 +127,16 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
-		}
+
+        }
 
 		private void Update()
 		{
-			JumpAndGravity();
-			GroundedCheck();
-			Move();
-		}
+            Move();
+            //JumpAndGravity();
+            GroundedCheck();
+            CheckCrouch();
+        }
 
 		private void LateUpdate()
 		{
@@ -198,9 +219,56 @@ namespace StarterAssets
 			_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
 		}
 
+		private void CheckCrouch()
+		{
+			// Crouch
+			if (_isCrouching != _input.crouch && !_duringCrouchAnimation)
+			{
+				StartCoroutine(CrouchStand());
+            }
+		}
+
+		private IEnumerator CrouchStand()
+		{
+			_duringCrouchAnimation = true;
+            
+
+			float timeElapsed = 0;
+			float targetHeight = _isCrouching ? _standingHeight : _crouchingHeight;
+            float currentHeight = _controller.height;
+            Vector3 currentCameraPosition = _camera.transform.position;
+            Vector3 targetCenter = _isCrouching ? _standingCenter : _crouchingCenter;
+			Vector3 currentCenter = _controller.center;
+            Vector3 targetCenterCollider = _isCrouching ? _standingCenterCollider : _crouchingCenterCollider;
+            Vector3 targetCameraPosition = _isCrouching ? _cameraStandingCenter : _cameraCrouchingCenter;
+
+            while (timeElapsed < _timeToCrouch)
+			{
+				_controller.height = Mathf.Lerp(currentHeight, targetHeight, timeElapsed / _timeToCrouch);
+                _controller.center = Vector3.Lerp(currentCenter, targetCenter, timeElapsed / _timeToCrouch);
+				_collider.height = _controller.height;
+                _collider.center = Vector3.Lerp(currentCenter, targetCenterCollider, timeElapsed / _timeToCrouch);
+				_camera.transform.position = Vector3.Lerp(currentCameraPosition, targetCameraPosition, timeElapsed / _timeToCrouch);
+                timeElapsed += Time.deltaTime;
+				yield return null;
+            }
+
+			_controller.height = targetHeight;
+            _controller.center = targetCenter;
+            _collider.height = _controller.height;
+			_collider.center = targetCenterCollider;
+			_camera.transform.position = targetCameraPosition;
+
+            _isCrouching = _input.crouch;
+            _duringCrouchAnimation = false;
+        }
 		private void JumpAndGravity()
 		{
-			if (Grounded)
+            if (_verticalVelocity < 0.0f)
+            {
+                _verticalVelocity = -2f;
+            }
+			/*if (Grounded)
 			{
 				// reset the fall timeout timer
 				_fallTimeoutDelta = FallTimeout;
@@ -209,13 +277,6 @@ namespace StarterAssets
 				if (_verticalVelocity < 0.0f)
 				{
 					_verticalVelocity = -2f;
-				}
-
-				// Jump
-				if (_input.jump && _jumpTimeoutDelta <= 0.0f)
-				{
-					// the square root of H * -2 * G = how much velocity needed to reach desired height
-					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
 				}
 
 				// jump timeout
@@ -235,9 +296,8 @@ namespace StarterAssets
 					_fallTimeoutDelta -= Time.deltaTime;
 				}
 
-				// if we are not grounded, do not jump
-				_input.jump = false;
-			}
+
+			}*/
 
 			// apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
 			if (_verticalVelocity < _terminalVelocity)
