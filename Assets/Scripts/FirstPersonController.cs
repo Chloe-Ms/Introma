@@ -259,7 +259,7 @@ namespace StarterAssets
 			_collider.center = targetCenterCollider;
 			_camera.transform.position = targetCameraPosition;
 
-            _isCrouching = _input.crouch;
+            _isCrouching = !_isCrouching;
             _duringCrouchAnimation = false;
         }
 		private void JumpAndGravity()
