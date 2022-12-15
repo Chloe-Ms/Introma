@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c4fe79c81dc044f8fa14e20f82bcd9, type: 3}
+  m_Name: MailTest1
+  m_EditorClassIdentifier: 
+  sender: Girl
+  subject: Hiya!
+  content: I'm great, how are YOU ?
+  date: 09/18/2003 5:53 AM
+  previousMail: {fileID: 11400000, guid: f668ec492fdbdb34b8841e88b2378a38, type: 2}
+  nextMailChoice1: {fileID: 11400000, guid: f16b07b07d0e56445806695d0a76d24d, type: 2}
+  nextMailChoice2: {fileID: 11400000, guid: e7676a5b77e24004b8b6fe0fa6b12048, type: 2}
+  girlFace: {fileID: 0}
+  isGlitched: 0
+  timeToWaitForAnswer: 0

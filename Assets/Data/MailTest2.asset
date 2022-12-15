@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c4fe79c81dc044f8fa14e20f82bcd9, type: 3}
+  m_Name: MailTest2
+  m_EditorClassIdentifier: 
+  sender: You
+  subject: I'm good...
+  content: I'm great too! Fun catching up with you!
+  date: 09/19/2003 2:53 AM
+  previousMail: {fileID: 11400000, guid: 4d2ffe747bba1c848bb7cc2250e430ed, type: 2}
+  nextMailChoice1: {fileID: 0}
+  nextMailChoice2: {fileID: 0}
+  girlFace: {fileID: 0}
+  isGlitched: 0
+  timeToWaitForAnswer: 2
