@@ -248,8 +248,6 @@ namespace StarterAssets
                 _controller.center = Vector3.Lerp(currentCenter, targetCenter, timeElapsed / _timeToCrouch);
 				_collider.height = _controller.height;
                 _collider.center = Vector3.Lerp(currentCenter, targetCenterCollider, timeElapsed / _timeToCrouch);
-				Debug.Log("current " + currentCameraPosition);
-                Debug.Log("target " + targetCameraPosition);
 				_camera.transform.position = new Vector3(_camera.transform.position.x, Mathf.Lerp(currentCameraPosition.y, targetCameraPosition, timeElapsed / _timeToCrouch), _camera.transform.position.z); 
                 timeElapsed += Time.deltaTime;
 				yield return null;
