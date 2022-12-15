@@ -86,8 +86,8 @@ namespace StarterAssets
         [SerializeField] private Vector3 _standingCenter = new Vector3(0f, 1f, 0f);
         [SerializeField] private Vector3 _standingCenterCollider = new Vector3(0f, 0f, 0f);
         [SerializeField] private Vector3 _crouchingCenterCollider = new Vector3(0f, -1f, 0f);
-        [SerializeField] private Vector3 _cameraStandingCenter = new Vector3(0f, 1.375f,0f);
-        [SerializeField] private Vector3 _cameraCrouchingCenter = new Vector3(0f, 0.6875f, 0f);
+        [SerializeField] private float _cameraStandingCenter = 1.375f;
+        [SerializeField] private float _cameraCrouchingCenter = 0.6875f;
         private bool _duringCrouchAnimation;
         private bool _isCrouching;
         [SerializeField] private CapsuleCollider _collider;
@@ -240,7 +240,7 @@ namespace StarterAssets
             Vector3 targetCenter = _isCrouching ? _standingCenter : _crouchingCenter;
 			Vector3 currentCenter = _controller.center;
             Vector3 targetCenterCollider = _isCrouching ? _standingCenterCollider : _crouchingCenterCollider;
-            Vector3 targetCameraPosition = _isCrouching ? _cameraStandingCenter : _cameraCrouchingCenter;
+            float targetCameraPosition = _isCrouching ? _cameraStandingCenter : _cameraCrouchingCenter;
 
             while (timeElapsed < _timeToCrouch)
 			{
@@ -248,7 +248,7 @@ namespace StarterAssets
                 _controller.center = Vector3.Lerp(currentCenter, targetCenter, timeElapsed / _timeToCrouch);
 				_collider.height = _controller.height;
                 _collider.center = Vector3.Lerp(currentCenter, targetCenterCollider, timeElapsed / _timeToCrouch);
-				_camera.transform.position = Vector3.Lerp(currentCameraPosition, targetCameraPosition, timeElapsed / _timeToCrouch);
+				_camera.transform.position = new Vector3(_camera.transform.position.x, Mathf.Lerp(currentCameraPosition.y, targetCameraPosition, timeElapsed / _timeToCrouch), _camera.transform.position.z); 
                 timeElapsed += Time.deltaTime;
 				yield return null;
             }
@@ -257,7 +257,7 @@ namespace StarterAssets
             _controller.center = targetCenter;
             _collider.height = _controller.height;
 			_collider.center = targetCenterCollider;
-			_camera.transform.position = targetCameraPosition;
+			_camera.transform.position = new Vector3(_camera.transform.position.x, targetCameraPosition, _camera.transform.position.z);
 
             _isCrouching = !_isCrouching;
             _duringCrouchAnimation = false;
@@ -268,36 +268,6 @@ namespace StarterAssets
             {
                 _verticalVelocity = -2f;
             }
-			/*if (Grounded)
-			{
-				// reset the fall timeout timer
-				_fallTimeoutDelta = FallTimeout;
-
-				// stop our velocity dropping infinitely when grounded
-				if (_verticalVelocity < 0.0f)
-				{
-					_verticalVelocity = -2f;
-				}
-
-				// jump timeout
-				if (_jumpTimeoutDelta >= 0.0f)
-				{
-					_jumpTimeoutDelta -= Time.deltaTime;
-				}
-			}
-			else
-			{
-				// reset the jump timeout timer
-				_jumpTimeoutDelta = JumpTimeout;
-
-				// fall timeout
-				if (_fallTimeoutDelta >= 0.0f)
-				{
-					_fallTimeoutDelta -= Time.deltaTime;
-				}
-
-
-			}*/
 
 			// apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
 			if (_verticalVelocity < _terminalVelocity)
