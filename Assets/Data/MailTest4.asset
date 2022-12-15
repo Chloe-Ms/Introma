@@ -16,7 +16,7 @@ MonoBehaviour:
   subject: I love you
   content: I'm never NOT talking to you again.
   date: 09/19/2003 03:00 AM
-  previousMail: {fileID: 11400000, guid: 52a4a0757ac1ceb4c8c5cb9aab37c9b4, type: 2}
+  previousMail: {fileID: 11400000, guid: f16b07b07d0e56445806695d0a76d24d, type: 2}
   nextMailChoice1: {fileID: 0}
   nextMailChoice2: {fileID: 0}
   girlFace: {fileID: 0}

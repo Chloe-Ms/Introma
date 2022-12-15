@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Runtime.CompilerServices;
+using UnityEngine.UI;
 
 public class MailBoxManager : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class MailBoxManager : MonoBehaviour
 
     [Header("\nGirl Window Objects\n")]
     [SerializeField] private GameObject girlWindow;
-    [SerializeField] private Sprite girlFace;
+    [SerializeField] private GameObject girlFace;
 
     [Header("\nDisplayed Mail Objects\n")]
     [SerializeField] private TMP_Text mailSubject;
@@ -33,12 +34,22 @@ public class MailBoxManager : MonoBehaviour
     [SerializeField] private TMP_Text mailDate;
     [SerializeField] private TMP_Text previousMail;
     [SerializeField] private TMP_Text mailContent;
+    [SerializeField] private GameObject AnswerButton;
+
+    [Header("\nAnswer Window Game Objects\n")]
+    [SerializeField] private GameObject answer1Box;
+    [SerializeField] private TMP_Text answer1;
+    [SerializeField] private GameObject answer2Box;
+    [SerializeField] private TMP_Text answer2;
+    [SerializeField] private TMP_Text chosenAnswer;
 
     [Header("\nMail Box Objects\n")]
     [SerializeField] private MailCell mailPrefab;
     [SerializeField] private GameObject mailGrid;
 
     private MailData activeDisplayedMail;
+    private MailData chosenAnswerData;
+    private bool canSendAnswer;
 
     // Start is called before the first frame update
     void Start()
@@ -59,14 +70,55 @@ public class MailBoxManager : MonoBehaviour
     void DisplayMail(MailData mailData)
     {
         mailSubject.text = mailData.Subject;
-        mailSender.text = mailData.Sender;
+        mailSender.text = "From : " + mailData.Sender;
         mailDate.text = mailData.Date;
         if (mailData.PreviousMail != null)
-            previousMail.text = mailData.PreviousMail.Content;
+            previousMail.text = "In response to : " + mailData.PreviousMail.Sender + " : " + mailData.PreviousMail.Content;
         else
             previousMail.text = "";
+        
+        AnswerButton.SetActive(mailData.NextMailChoice1 != null); //Disable Answer Button if no Answers
         mailContent.text = mailData.Content;
+        activeDisplayedMail = mailData;
     }
+    public void DisplayAnswers()
+    {
+        canSendAnswer = false;
+        answer1Box.SetActive(true);
+        answer2Box.SetActive(true);
+        chosenAnswer.gameObject.SetActive(false);
+        answer1.text = activeDisplayedMail.NextMailChoice1.Content;
+        answer2.text = activeDisplayedMail.NextMailChoice2.Content;
+    }
+
+    public void SetChosenAnswer(Button button)
+    {
+        canSendAnswer = true;
+        if (button.gameObject.name == "Answer1")
+            chosenAnswerData = activeDisplayedMail.NextMailChoice1;
+        else
+            chosenAnswerData = activeDisplayedMail.NextMailChoice2;
+        answer1Box.SetActive(false);
+        answer2Box.SetActive(false);
+        chosenAnswer.gameObject.SetActive(true);
+        chosenAnswer.text = chosenAnswerData.Content;
+    }
+    public void SendAnswer()
+    {
+        if (canSendAnswer)
+        {
+            StartCoroutine(WaitForAnswer());
+        }
+    }
+    private IEnumerator WaitForAnswer()
+    {
+        if (canSendAnswer)
+        {
+            yield return new WaitForSeconds(activeDisplayedMail.TimeToWaitForAnswer);
+            AddMail(chosenAnswerData.NextMailChoice1);
+        }
+    }
+
     private void InitMailBox(MailData[] mailList)
     {
         //StartCoroutine(gameObject.GetComponent<TextDisplay>().ScrollSentence(customer.Data.RequestStartText, _requestText));
