@@ -6,6 +6,18 @@ using System.Runtime.CompilerServices;
 
 public class MailBoxManager : MonoBehaviour
 {
+    private static MailBoxManager instance;
+
+    public static MailBoxManager Instance
+    {
+        get
+        {
+            if (instance == null)
+                instance = FindObjectOfType<MailBoxManager>();
+            return instance;
+        }
+    }
+
     [Header("\nInitial Mail Boxes\n")]
     [SerializeField] private MailData[] mailListDay1;
     [SerializeField] private MailData[] mailListDay2;
@@ -41,7 +53,19 @@ public class MailBoxManager : MonoBehaviour
     }
     void AddMail(MailData mailData)
     {
-        Instantiate(mailPrefab, mailGrid.transform).Display(mailData);
+        GameObject mail = Instantiate(mailPrefab, mailGrid.transform).Init(mailData);
+        mail.transform.SetAsFirstSibling();
+    }
+    void DisplayMail(MailData mailData)
+    {
+        mailSubject.text = mailData.Subject;
+        mailSender.text = mailData.Sender;
+        mailDate.text = mailData.Date;
+        if (mailData.PreviousMail != null)
+            previousMail.text = mailData.PreviousMail.Content;
+        else
+            previousMail.text = "";
+        mailContent.text = mailData.Content;
     }
     private void InitMailBox(MailData[] mailList)
     {
