@@ -6,6 +6,8 @@ public class PlayerHealth : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("COLLIDE");
+        if (collision.collider.gameObject.tag == "Enemy") {
+            //TO DO Stop movement of player + enemy + reload scene
+        }
     }
 }
