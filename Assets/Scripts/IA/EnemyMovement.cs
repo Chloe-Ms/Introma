@@ -26,7 +26,6 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(_enemyState);
         switch(_enemyState)
         {
             case EnemyState.Walk:
@@ -41,15 +40,16 @@ public class EnemyMovement : MonoBehaviour
             case EnemyState.Follow:
                 navMeshAgent.SetDestination(_player.transform.position);
                 break;
-            case EnemyState.Attack:
-                break;
         }
 
     }
 
     public void SetEnemyState(EnemyState newES)
     {
-        _enemyState = newES;
+        if (_enemyState != EnemyState.Attack)
+        {
+            _enemyState = newES;
+        }
     }
 
     public void SetPlayerReference(Transform playerTransform)
