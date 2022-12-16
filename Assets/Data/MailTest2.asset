@@ -17,7 +17,7 @@ MonoBehaviour:
   content: I'm great too! Fun catching up with you!
   date: 09/19/2003 2:53 AM
   previousMail: {fileID: 11400000, guid: 4d2ffe747bba1c848bb7cc2250e430ed, type: 2}
-  nextMailChoice1: {fileID: 0}
+  nextMailChoice1: {fileID: 11400000, guid: 704d7624fe83e83468ba5a9dfb7f4a6e, type: 2}
   nextMailChoice2: {fileID: 0}
   girlFace: {fileID: 0}
   isGlitched: 0

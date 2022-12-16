@@ -17,7 +17,7 @@ MonoBehaviour:
   content: I'm tired and sad. Stop talking to me.
   date: 09/19/2003 2:53 AM
   previousMail: {fileID: 11400000, guid: 4d2ffe747bba1c848bb7cc2250e430ed, type: 2}
-  nextMailChoice1: {fileID: 0}
+  nextMailChoice1: {fileID: 11400000, guid: 8b7c36513f1a6aa42b89f600873d4a32, type: 2}
   nextMailChoice2: {fileID: 0}
   girlFace: {fileID: 0}
   isGlitched: 0
