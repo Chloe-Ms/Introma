@@ -7,21 +7,38 @@ public class EnemyFieldOfView : MonoBehaviour
     [SerializeField] EnemyMovement _enemyMovement;
 
     [Space (10)]
-    [SerializeField] float radius; //Radius of the field
-    public float Radius
+    [SerializeField] float radiusFront; //Radius of the field
+    public float RadiusFront
     {
         get
         {
-            return radius;
+            return radiusFront;
         }
     }
     [Range(0, 360)]
-    [SerializeField] float angle; //Angle of the field
-    public float Angle
+    [SerializeField] float angleFront; //Angle of the field
+    public float AngleFront
     {
         get
         {
-            return angle;
+            return angleFront;
+        }
+    }
+    [SerializeField] float radiusBack; //Radius of the field
+    public float RadiusBack
+    {
+        get
+        {
+            return radiusBack;
+        }
+    }
+    [Range(0, 360)]
+    [SerializeField] float angleBack; //Angle of the field
+    public float AngleBack
+    {
+        get
+        {
+            return angleBack;
         }
     }
     [SerializeField] LayerMask targetMask;
@@ -48,14 +65,14 @@ public class EnemyFieldOfView : MonoBehaviour
     private void FieldOfViewCheck()
     {
         Transform target = null;
-        Collider[] collidersInRange = Physics.OverlapSphere(transform.position, radius, targetMask); //Get colliders in range radius
+        Collider[] collidersInRange = Physics.OverlapSphere(transform.position, radiusBack, targetMask); //Get colliders in range radius
 
         if (collidersInRange.Length != 0)
         {
             target = collidersInRange[0].transform; //Only one collider Player
             Vector3 directionToTarget = (target.position - transform.position).normalized;
 
-            if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2) // if player in angle
+            if (Vector3.Angle(-transform.forward, directionToTarget) < angleBack / 2)
             {
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
@@ -67,7 +84,26 @@ public class EnemyFieldOfView : MonoBehaviour
             else
                 canSeePlayer = false;
         }
-        else if (canSeePlayer)
+
+        collidersInRange = Physics.OverlapSphere(transform.position, radiusFront, targetMask); //Get colliders in range radius+
+
+        if (collidersInRange.Length != 0)
+        {
+            target = collidersInRange[0].transform; //Only one collider Player
+            Vector3 directionToTarget = (target.position - transform.position).normalized;
+
+            if (Vector3.Angle(transform.forward, directionToTarget) < angleFront / 2) // if player in angle
+            {
+                float distanceToTarget = Vector3.Distance(transform.position, target.position);
+
+                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMask)) // if player at a good distance
+                    canSeePlayer = true;
+                else
+                    canSeePlayer = false || canSeePlayer;
+            }
+            else
+                canSeePlayer = false || canSeePlayer;
+        }else if (canSeePlayer)
             canSeePlayer = false;
 
         if (canSeePlayer)

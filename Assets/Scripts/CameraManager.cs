@@ -11,13 +11,13 @@ public class CameraManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _cameraPOVPlayer.enabled = true;
-        _cameraEnemyScreamer.enabled = false;
+        _cameraPOVPlayer.Priority = 10;
+        _cameraEnemyScreamer.Priority = 1;
     }
 
     public void SetCameraScreamerOn()
     {
-        _cameraPOVPlayer.enabled = false;
-        _cameraEnemyScreamer.enabled = true;
+        _cameraPOVPlayer.Priority = 1;
+        _cameraEnemyScreamer.Priority = 10;
     }
 }
