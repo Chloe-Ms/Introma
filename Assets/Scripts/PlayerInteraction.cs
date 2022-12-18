@@ -23,6 +23,9 @@ public class PlayerInteraction : MonoBehaviour
         get { return obstacleMask; }
     }
     [SerializeField] GameObject _textInteract;
+
+    [SerializeField] GameObject _textNeedKey;
+
     private bool _isKeyPicked = false;
     public bool IsKeyPicked { 
         get { return _isKeyPicked; }
@@ -38,5 +41,15 @@ public class PlayerInteraction : MonoBehaviour
     public void SetTextInteractActive(bool isActive)
     {
         _textInteract.SetActive(isActive);
+    }
+
+    public void SetTextNeedKeyActive(bool isActive)
+    {
+        _textNeedKey.SetActive(isActive);
+    }
+
+    public bool GetTextNeedKeyActive()
+    {
+        return _textNeedKey.activeSelf;
     }
 }

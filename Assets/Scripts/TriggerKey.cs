@@ -21,7 +21,7 @@ public class TriggerKey : MonoBehaviour
         _inTriggerKey = false;
     }
 
-    private void Update()
+    private void OnTriggerStay(Collider other)
     {
         //_playerInput.actions["Interact"].IsPressed() //In interact
         Debug.DrawRay(_cameraPOV.transform.position, _cameraPOV.transform.forward * 10, Color.red);
@@ -35,9 +35,9 @@ public class TriggerKey : MonoBehaviour
             {
                 playerInteraction.IsKeyPicked = true;
                 Destroy(transform.parent.gameObject);
+                playerInteraction.SetTextInteractActive(false);
             }
-        }
-        else
+        } else
         {
             playerInteraction.SetTextInteractActive(false);
         }
