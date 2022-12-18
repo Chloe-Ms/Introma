@@ -25,18 +25,6 @@ namespace StarterAssets
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
 
-		[Space(10)]
-		[Tooltip("The height the player can jump")]
-		public float JumpHeight = 1.2f;
-		[Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
-		public float Gravity = -15.0f;
-
-		[Space(10)]
-		[Tooltip("Time required to pass before being able to jump again. Set to 0f to instantly jump again")]
-		public float JumpTimeout = 0.1f;
-		[Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
-		public float FallTimeout = 0.15f;
-
 		[Header("Player Grounded")]
 		[Tooltip("If the character is grounded or not. Not part of the CharacterController built in grounded check")]
 		public bool Grounded = true;
@@ -62,12 +50,6 @@ namespace StarterAssets
 		private float _speed;
 		private float _rotationVelocity;
 		private float _verticalVelocity;
-		private float _terminalVelocity = 53.0f;
-
-		// timeout deltatime
-		private float _jumpTimeoutDelta;
-		private float _fallTimeoutDelta;
-
 	
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 		private PlayerInput _playerInput;
@@ -92,6 +74,7 @@ namespace StarterAssets
         private bool _isCrouching;
         [SerializeField] private CapsuleCollider _collider;
         [SerializeField] private GameObject _camera;
+		private bool _canMove = true;
 
         private bool IsCurrentDeviceMouse
 		{
@@ -124,23 +107,24 @@ namespace StarterAssets
 			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
 
-			// reset our timeouts on start
-			_jumpTimeoutDelta = JumpTimeout;
-			_fallTimeoutDelta = FallTimeout;
-
         }
 
 		private void Update()
 		{
-            Move();
-            //JumpAndGravity();
-            GroundedCheck();
-            CheckCrouch();
-        }
+			if (_canMove)
+			{
+                Move();
+                GroundedCheck();
+                CheckCrouch();
+            }
+		}
 
 		private void LateUpdate()
 		{
-			CameraRotation();
+			if (_canMove)
+			{
+                CameraRotation();
+            }
 		}
 
 		private void GroundedCheck()
@@ -262,19 +246,7 @@ namespace StarterAssets
             _isCrouching = !_isCrouching;
             _duringCrouchAnimation = false;
         }
-		private void JumpAndGravity()
-		{
-            if (_verticalVelocity < 0.0f)
-            {
-                _verticalVelocity = -2f;
-            }
-
-			// apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
-			if (_verticalVelocity < _terminalVelocity)
-			{
-				_verticalVelocity += Gravity * Time.deltaTime;
-			}
-		}
+		
 
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
 		{
@@ -293,6 +265,11 @@ namespace StarterAssets
 
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
+		}
+
+		public void CanMove(bool canMove)
+		{
+			_canMove = canMove;
 		}
 	}
 }
