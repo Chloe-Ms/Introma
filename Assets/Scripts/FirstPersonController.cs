@@ -1,9 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
+using UnityEngine.XR;
+using static UnityEditor.PlayerSettings;
+
 
 #endif
 
@@ -24,18 +28,6 @@ namespace StarterAssets
 		public float RotationSpeed = 1.0f;
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
-
-		[Space(10)]
-		[Tooltip("The height the player can jump")]
-		public float JumpHeight = 1.2f;
-		[Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
-		public float Gravity = -15.0f;
-
-		[Space(10)]
-		[Tooltip("Time required to pass before being able to jump again. Set to 0f to instantly jump again")]
-		public float JumpTimeout = 0.1f;
-		[Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
-		public float FallTimeout = 0.15f;
 
 		[Header("Player Grounded")]
 		[Tooltip("If the character is grounded or not. Not part of the CharacterController built in grounded check")]
@@ -62,12 +54,6 @@ namespace StarterAssets
 		private float _speed;
 		private float _rotationVelocity;
 		private float _verticalVelocity;
-		private float _terminalVelocity = 53.0f;
-
-		// timeout deltatime
-		private float _jumpTimeoutDelta;
-		private float _fallTimeoutDelta;
-
 	
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 		private PlayerInput _playerInput;
@@ -92,6 +78,13 @@ namespace StarterAssets
         private bool _isCrouching;
         [SerializeField] private CapsuleCollider _collider;
         [SerializeField] private GameObject _camera;
+		private bool _canMove = true;
+
+        [SerializeField] private float staminaMax = 12f;
+        [SerializeField] private float nbSecForFullStamina = 20f;
+        [SerializeField] private float nbSecForEmptyStamina = 10f;
+        private float stamina;
+		[SerializeField] private RectTransform _staminaSliderTransform;
 
         private bool IsCurrentDeviceMouse
 		{
@@ -118,29 +111,73 @@ namespace StarterAssets
 		{
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
+			stamina = staminaMax;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
-			_playerInput = GetComponent<PlayerInput>();
+            _playerInput = GetComponent<PlayerInput>();
 #else
 			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
-
-			// reset our timeouts on start
-			_jumpTimeoutDelta = JumpTimeout;
-			_fallTimeoutDelta = FallTimeout;
 
         }
 
 		private void Update()
 		{
-            Move();
-            //JumpAndGravity();
-            GroundedCheck();
-            CheckCrouch();
+			if (_canMove)
+			{
+                Move();
+                GroundedCheck();
+				CheckStamina(_isCrouching);
+				UpdateUIStamina();
+                CheckCrouch();
+            }
+		}
+
+		private void UpdateUIStamina()
+		{
+			_staminaSliderTransform.offsetMax = new Vector2(-((120 * (1 - stamina / staminaMax)) - 5), _staminaSliderTransform.offsetMax.y);
+        }
+
+        private void CheckStamina(bool isDecreasing)
+		{
+			if (stamina <= staminaMax && stamina >= 0f)
+			{
+				if (!_duringCrouchAnimation)
+				{
+					if (isDecreasing)
+					{
+						if (_isCrouching)
+							stamina -= (staminaMax * Time.deltaTime) / nbSecForEmptyStamina;
+					}
+					else
+					{
+						if (!_input.crouch)
+							stamina += (staminaMax * Time.deltaTime) / nbSecForFullStamina;
+					}
+				}
+			}
+            if (stamina > staminaMax || stamina < 0f)
+			{
+                if (stamina < 0f)
+                {
+                    stamina = 0f;
+					if (!_duringCrouchAnimation && _isCrouching)
+					{
+                        StartCoroutine(CrouchStand());
+                    }
+                }
+                else
+                {
+                    stamina = staminaMax;
+                }
+            }
         }
 
 		private void LateUpdate()
 		{
-			CameraRotation();
+			if (_canMove)
+			{
+                CameraRotation();
+            }
 		}
 
 		private void GroundedCheck()
@@ -217,12 +254,12 @@ namespace StarterAssets
 
 			// move the player
 			_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
-		}
+        }
 
-		private void CheckCrouch()
+        private void CheckCrouch()
 		{
 			// Crouch
-			if (_isCrouching != _input.crouch && !_duringCrouchAnimation)
+			if (_isCrouching != _input.crouch && !_duringCrouchAnimation && stamina > 0f)
 			{
 				StartCoroutine(CrouchStand());
             }
@@ -231,8 +268,6 @@ namespace StarterAssets
 		private IEnumerator CrouchStand()
 		{
 			_duringCrouchAnimation = true;
-            
-
 			float timeElapsed = 0;
 			float targetHeight = _isCrouching ? _standingHeight : _crouchingHeight;
             float currentHeight = _controller.height;
@@ -262,19 +297,7 @@ namespace StarterAssets
             _isCrouching = !_isCrouching;
             _duringCrouchAnimation = false;
         }
-		private void JumpAndGravity()
-		{
-            if (_verticalVelocity < 0.0f)
-            {
-                _verticalVelocity = -2f;
-            }
-
-			// apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
-			if (_verticalVelocity < _terminalVelocity)
-			{
-				_verticalVelocity += Gravity * Time.deltaTime;
-			}
-		}
+		
 
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
 		{
@@ -293,6 +316,11 @@ namespace StarterAssets
 
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
+		}
+
+		public void CanMove(bool canMove)
+		{
+			_canMove = canMove;
 		}
 	}
 }
