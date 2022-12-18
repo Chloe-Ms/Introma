@@ -15,10 +15,12 @@ public class EnemyMovement : MonoBehaviour
     private int currentWaypoint;
     private EnemyState _enemyState = EnemyState.Walk;
     private GameObject _player;
-
+    [SerializeField] private float _normalSpeed = 1.5f;
+    [SerializeField] private float _runningSpeed = 3;
 
     void Start()
     {
+        navMeshAgent.speed = _normalSpeed;
         if (waypoints.Length > 0){
             navMeshAgent.SetDestination(waypoints[0].position);
         }
@@ -31,6 +33,7 @@ public class EnemyMovement : MonoBehaviour
             switch (_enemyState)
             {
                 case EnemyState.Walk:
+                    navMeshAgent.speed = _normalSpeed;
                     navMeshAgent.SetDestination(waypoints[currentWaypoint].position);
                     //Si l'ennemi a atteint le point, on change de point
                     if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance && waypoints.Length > 0)
@@ -40,6 +43,7 @@ public class EnemyMovement : MonoBehaviour
                     }
                     break;
                 case EnemyState.Follow:
+                    navMeshAgent.speed = _runningSpeed;
                     navMeshAgent.SetDestination(_player.transform.position);
                     break;
             }

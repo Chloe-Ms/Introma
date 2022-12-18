@@ -193,6 +193,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _normalSpeed: 1.5
+  _runningSpeed: 4
 --- !u!195 &2901607506395390190
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -244,8 +246,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyMovement: {fileID: 2901607506395390191}
-  radius: 0
-  angle: 0
+  radiusFront: 0
+  angleFront: 0
+  radiusBack: 0
+  angleBack: 0
   targetMask:
     serializedVersion: 2
     m_Bits: 128
