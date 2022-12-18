@@ -126,7 +126,7 @@ namespace StarterAssets
 			{
                 Move();
                 GroundedCheck();
-				CheckStamina(_isCrouching);
+				CheckStamina(_input.sprint);
 				UpdateUIStamina();
                 CheckCrouch();
             }
@@ -141,18 +141,14 @@ namespace StarterAssets
 		{
 			if (stamina <= staminaMax && stamina >= 0f)
 			{
-				if (!_duringCrouchAnimation)
-				{
 					if (isDecreasing)
 					{
-						if (_isCrouching)
-							stamina -= (staminaMax * Time.deltaTime) / nbSecForEmptyStamina;
+						stamina -= (staminaMax * Time.deltaTime) / nbSecForEmptyStamina;
 					}
 					else
 					{
-						if (!_input.crouch)
-							stamina += (staminaMax * Time.deltaTime) / nbSecForFullStamina;
-					}
+					if (!_input.sprint)
+						stamina += (staminaMax * Time.deltaTime) / nbSecForFullStamina;
 				}
 			}
             if (stamina > staminaMax || stamina < 0f)
@@ -160,10 +156,6 @@ namespace StarterAssets
                 if (stamina < 0f)
                 {
                     stamina = 0f;
-					if (!_duringCrouchAnimation && _isCrouching)
-					{
-                        StartCoroutine(CrouchStand());
-                    }
                 }
                 else
                 {
@@ -212,7 +204,7 @@ namespace StarterAssets
 		private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
-			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+			float targetSpeed = _input.sprint && stamina > 0f? SprintSpeed : MoveSpeed;
 
 			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
@@ -259,7 +251,7 @@ namespace StarterAssets
         private void CheckCrouch()
 		{
 			// Crouch
-			if (_isCrouching != _input.crouch && !_duringCrouchAnimation && stamina > 0f)
+			if (_isCrouching != _input.crouch && !_duringCrouchAnimation)
 			{
 				StartCoroutine(CrouchStand());
             }
