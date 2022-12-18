@@ -418,6 +418,7 @@ GameObject:
   - component: {fileID: 2187158457044526702}
   - component: {fileID: 1327003119039489879}
   - component: {fileID: 6200329514186735053}
+  - component: {fileID: 2820815678416951570}
   m_Layer: 5
   m_Name: MailTemplate
   m_TagString: Untagged
@@ -502,6 +503,7 @@ MonoBehaviour:
   mailSubject: {fileID: 2187158455981602013}
   mailSender: {fileID: 2187158456660917580}
   mailDate: {fileID: 2187158455693647137}
+  canAnswer: 0
 --- !u!114 &6200329514186735053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,6 +560,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2820815678416951570}
+        m_TargetAssemblyTypeName: ScreenSoundsManager, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2820815678416951570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2187158457044526688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e241d4980947384b91e46870269b45f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSound: {fileID: 8300000, guid: d1b035a44246f984db8f04b7a601870c, type: 3}
+  errorSound: {fileID: 0}
 --- !u!1 &9075899886532622071
 GameObject:
   m_ObjectHideFlags: 0
