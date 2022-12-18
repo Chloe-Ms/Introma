@@ -1,9 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
+using UnityEngine.XR;
+using static UnityEditor.PlayerSettings;
+
 
 #endif
 
@@ -76,6 +80,12 @@ namespace StarterAssets
         [SerializeField] private GameObject _camera;
 		private bool _canMove = true;
 
+        [SerializeField] private float staminaMax = 12f;
+        [SerializeField] private float nbSecForFullStamina = 20f;
+        [SerializeField] private float nbSecForEmptyStamina = 10f;
+        private float stamina;
+		[SerializeField] private RectTransform _staminaSliderTransform;
+
         private bool IsCurrentDeviceMouse
 		{
 			get
@@ -101,8 +111,9 @@ namespace StarterAssets
 		{
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
+			stamina = staminaMax;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
-			_playerInput = GetComponent<PlayerInput>();
+            _playerInput = GetComponent<PlayerInput>();
 #else
 			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
@@ -115,9 +126,51 @@ namespace StarterAssets
 			{
                 Move();
                 GroundedCheck();
+				CheckStamina(_isCrouching);
+				UpdateUIStamina();
                 CheckCrouch();
             }
 		}
+
+		private void UpdateUIStamina()
+		{
+			_staminaSliderTransform.offsetMax = new Vector2(-((120 * (1 - stamina / staminaMax)) - 5), _staminaSliderTransform.offsetMax.y);
+        }
+
+        private void CheckStamina(bool isDecreasing)
+		{
+			if (stamina <= staminaMax && stamina >= 0f)
+			{
+				if (!_duringCrouchAnimation)
+				{
+					if (isDecreasing)
+					{
+						if (_isCrouching)
+							stamina -= (staminaMax * Time.deltaTime) / nbSecForEmptyStamina;
+					}
+					else
+					{
+						if (!_input.crouch)
+							stamina += (staminaMax * Time.deltaTime) / nbSecForFullStamina;
+					}
+				}
+			}
+            if (stamina > staminaMax || stamina < 0f)
+			{
+                if (stamina < 0f)
+                {
+                    stamina = 0f;
+					if (!_duringCrouchAnimation && _isCrouching)
+					{
+                        StartCoroutine(CrouchStand());
+                    }
+                }
+                else
+                {
+                    stamina = staminaMax;
+                }
+            }
+        }
 
 		private void LateUpdate()
 		{
@@ -201,12 +254,12 @@ namespace StarterAssets
 
 			// move the player
 			_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
-		}
+        }
 
-		private void CheckCrouch()
+        private void CheckCrouch()
 		{
 			// Crouch
-			if (_isCrouching != _input.crouch && !_duringCrouchAnimation)
+			if (_isCrouching != _input.crouch && !_duringCrouchAnimation && stamina > 0f)
 			{
 				StartCoroutine(CrouchStand());
             }
@@ -215,8 +268,6 @@ namespace StarterAssets
 		private IEnumerator CrouchStand()
 		{
 			_duringCrouchAnimation = true;
-            
-
 			float timeElapsed = 0;
 			float targetHeight = _isCrouching ? _standingHeight : _crouchingHeight;
             float currentHeight = _controller.height;
