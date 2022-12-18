@@ -13,9 +13,9 @@ public class PlayerHealth : MonoBehaviour
     private bool _isAttacking = false;
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("COLLIDE");
+        //Debug.Log("COLLIDE");
         if (collision.collider.gameObject.tag == "Enemy" && !_isAttacking) {
-            Debug.Log("ENEMY");
+            //Debug.Log("ENEMY");
             _isAttacking = true;
             //Stop enemy Movement
             if (collision.collider.gameObject.TryGetComponent<EnemyMovement>(out var enemyMovement))
@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
         if (other.gameObject.tag == "Enemy" && !_isAttacking)
         {
             _isAttacking = true;
-            Debug.Log("ENEMY");
+            //Debug.Log("ENEMY");
             //Stop enemy Movement
             if (other.gameObject.TryGetComponent<EnemyMovement>(out var enemyMovement))
             {

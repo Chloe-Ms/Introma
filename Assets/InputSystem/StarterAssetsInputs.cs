@@ -15,7 +15,7 @@ namespace StarterAssets
 		public bool crouch;
 		public bool sprint;
 
-		[Header("Movement Settings")]
+        [Header("Movement Settings")]
 		public bool analogMovement;
 
 		[Header("Mouse Cursor Settings")]
@@ -47,8 +47,7 @@ namespace StarterAssets
 		}
 #endif
 
-
-		public void MoveInput(Vector2 newMoveDirection)
+        public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
 		} 
