@@ -22,6 +22,12 @@ public class PlayerInteraction : MonoBehaviour
     {
         get { return obstacleMask; }
     }
+
+    [SerializeField] LayerMask computerMask;
+    public LayerMask ComputerMask
+    {
+        get { return computerMask; }
+    }
     [SerializeField] GameObject _textInteract;
 
     [SerializeField] GameObject _textNeedKey;
