@@ -22,6 +22,7 @@ public class MailData : ScriptableObject
 
     [SerializeField] private bool isGlitched;
     [SerializeField] private bool canAnswer;
+    [SerializeField] private bool screamer;
 
     [SerializeField] private float timeToWaitForAnswer;
 
@@ -79,6 +80,11 @@ public class MailData : ScriptableObject
     {
         get { return canAnswer; }
         set { canAnswer = value; }
+    }
+    public bool Screamer
+    {
+        get { return screamer; }
+        set { screamer = value; }
     }
 
     public float TimeToWaitForAnswer

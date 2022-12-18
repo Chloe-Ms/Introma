@@ -46,6 +46,7 @@ public class MailBoxManager : MonoBehaviour
     [Header("\nMail Box Objects\n")]
     [SerializeField] private MailCell mailPrefab;
     [SerializeField] private GameObject mailGrid;
+    [SerializeField] private GameObject screamer;
 
     private MailData activeDisplayedMail;
     private MailData chosenAnswerData;
@@ -80,6 +81,12 @@ public class MailBoxManager : MonoBehaviour
         AnswerButton.SetActive(mailData.NextMailChoice1 != null && mailData.CanAnswer); //Disable Answer Button if no Answers or !canAnswer
         mailContent.text = mailData.Content;
         activeDisplayedMail = mailData;
+        if (mailData.Screamer)
+            PlayScreamer();
+    }
+    void PlayScreamer()
+    {
+        screamer.SetActive(true);
     }
     public void DisplayAnswers()
     {
