@@ -21,4 +21,5 @@ MonoBehaviour:
   nextMailChoice2: {fileID: 0}
   girlFace: {fileID: 0}
   isGlitched: 1
+  canAnswer: 1
   timeToWaitForAnswer: 0

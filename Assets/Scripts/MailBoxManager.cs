@@ -77,7 +77,7 @@ public class MailBoxManager : MonoBehaviour
         else
             previousMail.text = "";
         
-        AnswerButton.SetActive(mailData.NextMailChoice1 != null); //Disable Answer Button if no Answers
+        AnswerButton.SetActive(mailData.NextMailChoice1 != null && mailData.CanAnswer); //Disable Answer Button if no Answers or !canAnswer
         mailContent.text = mailData.Content;
         activeDisplayedMail = mailData;
     }
@@ -107,6 +107,8 @@ public class MailBoxManager : MonoBehaviour
     {
         if (canSendAnswer)
         {
+            activeDisplayedMail.CanAnswer = false;
+            AnswerButton.SetActive(false);
             StartCoroutine(WaitForAnswer());
         }
     }
