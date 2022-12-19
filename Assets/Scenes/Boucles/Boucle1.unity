@@ -997,6 +997,10 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1024172475}
+    - target: {fileID: 8762286024517199035, guid: 869e22e39a5ac3d4ba0f5df8972db37f, type: 3}
+      propertyPath: m_NoiseProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: 20a705aea2d80e0478fb89b6f43d8530, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 869e22e39a5ac3d4ba0f5df8972db37f, type: 3}
 --- !u!1 &831412508
