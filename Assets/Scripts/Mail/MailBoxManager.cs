@@ -83,9 +83,17 @@ public class MailBoxManager : MonoBehaviour
         activeDisplayedMail = mailData;
         if (mailData.Screamer)
             PlayScreamer();
+        if(mailData.GirlFace != null)
+        {
+            girlWindow.SetActive(true);
+            girlFace.GetComponent<Image>().sprite = mailData.GirlFace;
+        }
+        else
+            girlWindow.SetActive(false);
     }
     void PlayScreamer()
     {
+        this.GetComponent<ScreenSoundsManager>().ScreamerSound();
         screamer.SetActive(true);
     }
     public void DisplayAnswers()
@@ -132,9 +140,9 @@ public class MailBoxManager : MonoBehaviour
     {
         //StartCoroutine(gameObject.GetComponent<TextDisplay>().ScrollSentence(customer.Data.RequestStartText, _requestText));
 
-        // Destroy all mails in mailbox
-        foreach (Transform child in mailGrid.transform)
-            Destroy(child.gameObject);
+        //// Destroy all mails in mailbox
+        //foreach (Transform child in mailGrid.transform)
+        //    Destroy(child.gameObject);
 
         // Instantiate all mails from List
         foreach (MailData mail in mailList)

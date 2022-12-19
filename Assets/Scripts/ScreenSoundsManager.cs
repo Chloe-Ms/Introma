@@ -8,6 +8,7 @@ public class ScreenSoundsManager : MonoBehaviour
     AudioSource audioSource;
     [SerializeField] AudioClip clickSound;
     [SerializeField] AudioClip errorSound;
+    [SerializeField] AudioClip screamerSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +20,13 @@ public class ScreenSoundsManager : MonoBehaviour
     {
         
     }
+    public void ScreamerSound()
+    {
+        audioSource.PlayOneShot(screamerSound, 1f);
+    }
     public void ClickSound()
     {
-        audioSource.PlayOneShot(clickSound, 0.6f);
+        audioSource.PlayOneShot(clickSound, 0.4f);
     }
     public void ErrorSound()
     {
