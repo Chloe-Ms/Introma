@@ -4,11 +4,33 @@ using UnityEngine;
 
 public class SoundsManager : MonoBehaviour
 {
-    Dictionary<string, AudioClip> _audios;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] AudioClip[] _audios;
+    [SerializeField] AudioSource _audioSource;
+    [SerializeField] float _delay = 5f;
+
+    [SerializeField] float _percentageSound = 0.2f;
+
+    private void Start()
     {
-        
+        StartCoroutine(PlaySound());
     }
 
+    IEnumerator PlaySound()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(_delay);
+            bool playSound = Random.Range(0f, 1f) < _percentageSound;
+            if (playSound)
+            {
+                Debug.Log("PLAY");
+                int index = Random.Range(0, _audios.Length);
+                _audioSource.PlayOneShot(_audios[index]);
+            }else
+            {
+                Debug.Log("NO SOUND");
+            }
+        }
+
+    }
 }
