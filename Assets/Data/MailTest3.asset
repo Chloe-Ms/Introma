@@ -22,4 +22,5 @@ MonoBehaviour:
   girlFace: {fileID: 0}
   isGlitched: 0
   canAnswer: 0
+  screamer: 0
   timeToWaitForAnswer: 5
