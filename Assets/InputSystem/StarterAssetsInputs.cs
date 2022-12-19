@@ -3,7 +3,7 @@ using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
-using static UnityEngine.Rendering.DebugUI;
+//using static UnityEngine.Rendering.DebugUI;
 
 
 #endif
