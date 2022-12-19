@@ -78,7 +78,7 @@ namespace StarterAssets
         private bool _isCrouching;
         [SerializeField] private CapsuleCollider _collider;
         [SerializeField] private GameObject _camera;
-		private bool _canMove = true;
+		public bool _canMove;
 
         [SerializeField] private float staminaMax = 12f;
         [SerializeField] private float nbSecForFullStamina = 20f;
