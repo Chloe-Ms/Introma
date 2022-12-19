@@ -280,7 +280,7 @@ MonoBehaviour:
   _crouchingCenter: {x: 0, y: 0.5, z: 0}
   _standingCenter: {x: 0, y: 1, z: 0}
   _standingCenterCollider: {x: 0, y: 0, z: 0}
-  _crouchingCenterCollider: {x: 0, y: -1, z: 0}
+  _crouchingCenterCollider: {x: 0, y: -0.5, z: 0}
   _cameraStandingCenter: 1.375
   _cameraCrouchingCenter: 0.6875
   _collider: {fileID: 5393215578589016640}
@@ -305,6 +305,7 @@ MonoBehaviour:
   look: {x: 0, y: 0}
   crouch: 0
   sprint: 0
+  interact: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1

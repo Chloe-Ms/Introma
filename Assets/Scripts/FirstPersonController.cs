@@ -263,7 +263,7 @@ namespace StarterAssets
 			float timeElapsed = 0;
 			float targetHeight = _isCrouching ? _standingHeight : _crouchingHeight;
             float currentHeight = _controller.height;
-            Vector3 currentCameraPosition = _camera.transform.position;
+            Vector3 currentCameraPosition = _camera.transform.localPosition;
             Vector3 targetCenter = _isCrouching ? _standingCenter : _crouchingCenter;
 			Vector3 currentCenter = _controller.center;
             Vector3 targetCenterCollider = _isCrouching ? _standingCenterCollider : _crouchingCenterCollider;
@@ -275,7 +275,7 @@ namespace StarterAssets
                 _controller.center = Vector3.Lerp(currentCenter, targetCenter, timeElapsed / _timeToCrouch);
 				_collider.height = _controller.height;
                 _collider.center = Vector3.Lerp(currentCenter, targetCenterCollider, timeElapsed / _timeToCrouch);
-				_camera.transform.position = new Vector3(_camera.transform.position.x, Mathf.Lerp(currentCameraPosition.y, targetCameraPosition, timeElapsed / _timeToCrouch), _camera.transform.position.z); 
+				_camera.transform.localPosition = new Vector3(_camera.transform.localPosition.x, Mathf.Lerp(currentCameraPosition.y, targetCameraPosition, timeElapsed / _timeToCrouch), _camera.transform.localPosition.z); 
                 timeElapsed += Time.deltaTime;
 				yield return null;
             }
@@ -284,7 +284,7 @@ namespace StarterAssets
             _controller.center = targetCenter;
             _collider.height = _controller.height;
 			_collider.center = targetCenterCollider;
-			_camera.transform.position = new Vector3(_camera.transform.position.x, targetCameraPosition, _camera.transform.position.z);
+			_camera.transform.localPosition = new Vector3(_camera.transform.localPosition.x, targetCameraPosition, _camera.transform.localPosition.z);
 
             _isCrouching = !_isCrouching;
             _duringCrouchAnimation = false;
