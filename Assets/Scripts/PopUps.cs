@@ -39,7 +39,6 @@ public class PopUps : MonoBehaviour
                 return;
         }
         GameManager.Instance.NextDay();
-        Debug.Log("Day Finished");
     }
     public void SecondRound()
     {

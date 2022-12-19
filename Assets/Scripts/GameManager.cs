@@ -23,9 +23,9 @@ public class GameManager : MonoBehaviour
     }
 
     public enum Day {
-        First = 1,
-        Second = 2,
-        Third = 3};
+        First = 0,
+        Second = 1,
+        Third = 2};
 
     public Day day = Day.First; 
 
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log((int)day);
     }
     public void NextDay()
     {
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     IEnumerator DayStart()
     {
         yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene((int)day -1);
+        SceneManager.LoadScene((int)day);
         FadeImage.SetTrigger("FadeIn");
     }
 
