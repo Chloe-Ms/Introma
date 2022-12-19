@@ -16,7 +16,6 @@ public class MailCell : MonoBehaviour
     }
     public GameObject Init(MailData _mailData)
     {
-        Debug.Log(_mailData.Subject);
         mailSubject.text = _mailData.Subject;
         mailSender.text = "From : " + _mailData.Sender;
         mailDate.text = _mailData.Date;

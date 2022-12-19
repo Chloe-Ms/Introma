@@ -4,6 +4,15 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Boucles/Boucle1.unity
+    guid: 2562d815bfa1fad408985386b81e9e39
+  - enabled: 1
+    path: Assets/Scenes/Boucles/Boucle2.unity
+    guid: 7b95c8c64088328449c96f44c0b3c016
+  - enabled: 1
+    path: Assets/Scenes/Boucles/Boucle3.unity
+    guid: d038733a5892899459d75797591e4dd1
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

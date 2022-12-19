@@ -48,6 +48,9 @@ public class MailBoxManager : MonoBehaviour
     [SerializeField] private GameObject mailGrid;
     [SerializeField] private GameObject screamer;
 
+    [Header("\nOther\n")]
+    [SerializeField] private TriggerComputer triggerComputer;
+
     private MailData activeDisplayedMail;
     private MailData chosenAnswerData;
     private bool canSendAnswer;
@@ -95,6 +98,7 @@ public class MailBoxManager : MonoBehaviour
     {
         this.GetComponent<ScreenSoundsManager>().ScreamerSound();
         screamer.SetActive(true);
+        triggerComputer.GetOffComputer();
     }
     public void DisplayAnswers()
     {

@@ -12,7 +12,7 @@ public class ScreenSoundsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
+        audioSource = GameObject.Find("MainCamera").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
