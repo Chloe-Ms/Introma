@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c4fe79c81dc044f8fa14e20f82bcd9, type: 3}
+  m_Name: Office_Mail_2
+  m_EditorClassIdentifier: 
+  sender: John
+  subject: 'Re : Account problem'
+  content: "Hi Rose,\r\nEverything is normal. We had some complications with the
+    renovation of the 3rd floor so we had to pick more cash from our backup accounts.\r\nAgain,
+    everything is in order, don\u2019t worry.\r"
+  date: 11/16/1997 12:47AM
+  previousMail: {fileID: 11400000, guid: 44fb60fdfb4778a4b86e4c34f2d7da9e, type: 2}
+  nextMailChoice1: {fileID: 0}
+  nextMailChoice2: {fileID: 0}
+  girlFace: {fileID: 0}
+  isGlitched: 0
+  canAnswer: 0
+  screamer: 0
+  timeToWaitForAnswer: 0
