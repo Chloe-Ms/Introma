@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
+using static UnityEngine.Rendering.DebugUI;
+
 
 #endif
 
@@ -14,6 +17,7 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool crouch;
 		public bool sprint;
+        public bool interact = false;
 
         [Header("Movement Settings")]
 		public bool analogMovement;
@@ -46,8 +50,20 @@ namespace StarterAssets
 			SprintInput(value.isPressed);
 		}
 #endif
+		public void OnInteract(InputValue value)
+		{
+            InteractInput(value.isPressed);
+        }
 
-        public void MoveInput(Vector2 newMoveDirection)
+		private void InteractInput(bool isPressed)
+		{
+			if (isPressed)
+			{
+				interact = !interact;
+			}
+		}
+
+		public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
 		} 

@@ -38,6 +38,8 @@ public class PlayerInteraction : MonoBehaviour
         set { _isKeyPicked = value; }
     }
     [SerializeField] PlayerInput _playerInput;
+
+
     
     public bool InteractButtonIsPressed()
     {

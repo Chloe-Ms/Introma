@@ -1,3 +1,4 @@
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,11 @@ public class TriggerComputer : MonoBehaviour
     [SerializeField] private PlayerInteraction playerInteraction;
     [SerializeField] GameObject _cameraPOV;
     [SerializeField] CameraManager _cameraManager;
-
+    [SerializeField] FirstPersonController _playerMovement;
+    private bool _isOnPC = false;
+    private bool _inputCaught = false;
     private bool _inTriggerComputer = false;
+    [SerializeField] private StarterAssetsInputs _input;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,26 +26,30 @@ public class TriggerComputer : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        //_playerInput.actions["Interact"].IsPressed() //In interact
-        Debug.DrawRay(_cameraPOV.transform.position, _cameraPOV.transform.forward * 10, Color.red);
-
         float distanceToTarget = Vector3.Distance(transform.position, _cameraPOV.transform.position);
 
-        Debug.Log(Physics.Raycast(_cameraPOV.transform.position, _cameraPOV.transform.forward, distanceToTarget, playerInteraction.ComputerMask));
-        Debug.Log("OBS" + Physics.Raycast(_cameraPOV.transform.position, _cameraPOV.transform.forward, distanceToTarget, playerInteraction.ObstacleMask));
+        Debug.DrawRay(_cameraPOV.transform.position, _cameraPOV.transform.forward * distanceToTarget, Color.red);
         if (_inTriggerComputer && Physics.Raycast(_cameraPOV.transform.position, _cameraPOV.transform.forward, distanceToTarget, playerInteraction.ComputerMask) &&
             !Physics.Raycast(_cameraPOV.transform.position, _cameraPOV.transform.forward, distanceToTarget, playerInteraction.ObstacleMask))
         {
-            playerInteraction.SetTextInteractActive(true);
-            if (playerInteraction.InteractButtonIsPressed())
+
+            if (!_isOnPC)
+                playerInteraction.SetTextInteractActive(true);
+            if (_inputCaught != _input.interact)
             {
-                _cameraManager.SetComputerCameraOn();
-                playerInteraction.SetTextInteractActive(false);
+                if (!_isOnPC)
+                {
+                    _playerMovement.CanMove(false);
+                    _cameraManager.SetComputerCameraOn();
+                    playerInteraction.SetTextInteractActive(false);
+                    _isOnPC = !_isOnPC;
+                } else {
+                    _playerMovement.CanMove(true);
+                    _cameraManager.SetNormalCameraOn();
+                    _isOnPC = !_isOnPC;
+                }
+                }
+                _inputCaught = _input.interact;
             }
         }
-        else
-        {
-            playerInteraction.SetTextInteractActive(false);
-        }
-    }
 }
