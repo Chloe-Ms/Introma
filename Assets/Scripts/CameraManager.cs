@@ -36,8 +36,8 @@ public class CameraManager : MonoBehaviour
     {
         _cameraPOVPlayer.Priority = 1;
         if (_cameraEnemyScreamer != null)
-            _cameraEnemyScreamer.Priority = 10;
+            _cameraEnemyScreamer.Priority = 1;
         if (_cameraComputer != null)
-            _cameraComputer.Priority = 1;
+            _cameraComputer.Priority = 10;
     }
 }
