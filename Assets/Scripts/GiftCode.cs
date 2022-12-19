@@ -36,14 +36,11 @@ public class GiftCode : MonoBehaviour, IPointerEnterHandler
     {
         if(text == code)
         {
-            Debug.Log("Day Finished");
             GameManager.Instance.NextDay();
-            Debug.Log("RIGHT");
             inputField.text = "";
         }
         else
         {
-            Debug.LogError("WRONG");
             inputField.text = "";
         }
     }

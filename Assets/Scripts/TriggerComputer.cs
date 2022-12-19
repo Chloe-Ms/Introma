@@ -1,7 +1,10 @@
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 public class TriggerComputer : MonoBehaviour
 {
@@ -13,6 +16,9 @@ public class TriggerComputer : MonoBehaviour
     private bool _inputCaught = false;
     private bool _inTriggerComputer = false;
     [SerializeField] private StarterAssetsInputs _input;
+
+    [SerializeField] private GameObject screen;
+    [SerializeField] GameObject _pointer;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -43,13 +49,35 @@ public class TriggerComputer : MonoBehaviour
                     _cameraManager.SetComputerCameraOn();
                     playerInteraction.SetTextInteractActive(false);
                     _isOnPC = !_isOnPC;
+                    Cursor.visible = true;
+                    screen.SetActive(true);
+                    _pointer.SetActive(false);
+                    Cursor.lockState = CursorLockMode.None;
                 } else {
                     _playerMovement.CanMove(true);
                     _cameraManager.SetNormalCameraOn();
                     _isOnPC = !_isOnPC;
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
+                    screen.SetActive(false);
+                    _pointer.SetActive(true);
                 }
                 }
                 _inputCaught = _input.interact;
             }
         }
+    public void GetOffComputer()
+    {
+        if (_isOnPC)
+        {
+            _playerMovement.CanMove(true);
+            _cameraManager.SetNormalCameraOn();
+            _isOnPC = !_isOnPC;
+            screen.SetActive(false);
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            _pointer.SetActive(true);
+        }
+    }
 }
+
