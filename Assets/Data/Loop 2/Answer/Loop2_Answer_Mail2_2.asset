@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c4fe79c81dc044f8fa14e20f82bcd9, type: 3}
   m_Name: Loop2_Answer_Mail2_2
   m_EditorClassIdentifier: 
-  sender: 
-  subject: 
-  content: 
+  sender: You
+  subject: 'Re : Hellooooooo'
+  content: Bullshit ! There's no one here
   date: 
-  previousMail: {fileID: 0}
-  nextMailChoice1: {fileID: 0}
+  previousMail: {fileID: 11400000, guid: 2bfd6155055ecff4fab11277a78a9d50, type: 2}
+  nextMailChoice1: {fileID: 11400000, guid: f34bac209d436b94e8d03ddcbc18db19, type: 2}
   nextMailChoice2: {fileID: 0}
   girlFace: {fileID: 0}
   isGlitched: 0

@@ -17,8 +17,8 @@ MonoBehaviour:
   content: How can't you notice me when i'm just next to you ??
   date: 05/09/2005 11:55PM
   previousMail: {fileID: 11400000, guid: 2bfd6155055ecff4fab11277a78a9d50, type: 2}
-  nextMailChoice1: {fileID: 0}
-  nextMailChoice2: {fileID: 0}
+  nextMailChoice1: {fileID: 11400000, guid: 334b227eb67657f49adf66baa3d1e475, type: 2}
+  nextMailChoice2: {fileID: 11400000, guid: f0aa0c6b066d52b41998e6f3d6afae72, type: 2}
   girlFace: {fileID: 0}
   isGlitched: 0
   canAnswer: 1

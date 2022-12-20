@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97c4fe79c81dc044f8fa14e20f82bcd9, type: 3}
-  m_Name: Loop2_Mail_4bis
+  m_Name: Loop3_Mail_5
   m_EditorClassIdentifier: 
-  sender: Unknown
-  subject: 'Re : Hellooooooo'
-  content: I'm literally next to you right now
-  date: 05/09/2005 11:55PM
-  previousMail: {fileID: 11400000, guid: 472e50cb75f8b23478943d59578e847c, type: 2}
-  nextMailChoice1: {fileID: 11400000, guid: fdaa91a8903d6c145bc56f4e234edc3f, type: 2}
-  nextMailChoice2: {fileID: 11400000, guid: 41d97cde3dc74dc44903e83b18076fdf, type: 2}
+  sender: 
+  subject: 'Re : no subject'
+  content: I will have my revenge John.
+  date: 11/27/2008 01:38AM
+  previousMail: {fileID: 11400000, guid: 2bef554d28d04d6428678310bac4b0b5, type: 2}
+  nextMailChoice1: {fileID: 11400000, guid: 6a81aa44f108cb449bf8549dff72e11a, type: 2}
+  nextMailChoice2: {fileID: 0}
   girlFace: {fileID: 0}
-  isGlitched: 0
-  canAnswer: 1
+  isGlitched: 1
+  canAnswer: 0
   screamer: 0
   timeToWaitForAnswer: 2
