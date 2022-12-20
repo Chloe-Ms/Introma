@@ -976,11 +976,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4985520972952230024, guid: da9449b9a4e7be14dbf0b40397cbf700, type: 3}
       propertyPath: MoveSpeed
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4985520972952230024, guid: da9449b9a4e7be14dbf0b40397cbf700, type: 3}
       propertyPath: SprintSpeed
-      value: 15
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4985520972952230024, guid: da9449b9a4e7be14dbf0b40397cbf700, type: 3}
       propertyPath: _staminaSliderTransform
