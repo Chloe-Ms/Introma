@@ -2760,6 +2760,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1024172477}
     - target: {fileID: 800291020, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+      propertyPath: screen
+      value: 
+      objectReference: {fileID: 1286778908}
+    - target: {fileID: 800291020, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
       propertyPath: _pointer
       value: 
       objectReference: {fileID: 831412508}
@@ -2831,8 +2835,30 @@ PrefabInstance:
       propertyPath: _enemy
       value: 
       objectReference: {fileID: 570793252}
+    - target: {fileID: 7770030957319326726, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+      propertyPath: mailGrid
+      value: 
+      objectReference: {fileID: 1286778909}
+    - target: {fileID: 7770030959184002311, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+      propertyPath: m_Name
+      value: MailList3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770030959184002311, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+      propertyPath: m_TagString
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+--- !u!1 &1286778908 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7770030957319326723, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+  m_PrefabInstance: {fileID: 1286778907}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1286778909 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7770030959184002311, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+  m_PrefabInstance: {fileID: 1286778907}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1296405025
 GameObject:
   m_ObjectHideFlags: 0

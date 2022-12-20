@@ -337,6 +337,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3155488165061727386, guid: ec099d86197f84643921bfd85a176af6, type: 3}
+      propertyPath: mailGrid
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3155488165061727386, guid: ec099d86197f84643921bfd85a176af6, type: 3}
       propertyPath: triggerComputer
       value: 
       objectReference: {fileID: 800291020}
@@ -450,7 +454,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3155488165061727391, guid: ec099d86197f84643921bfd85a176af6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3155488165131657809, guid: ec099d86197f84643921bfd85a176af6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

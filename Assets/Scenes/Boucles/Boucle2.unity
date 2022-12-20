@@ -2012,6 +2012,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1024172478}
     - target: {fileID: 800291020, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+      propertyPath: screen
+      value: 
+      objectReference: {fileID: 1944810369}
+    - target: {fileID: 800291020, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
       propertyPath: _pointer
       value: 
       objectReference: {fileID: 831412508}
@@ -2079,8 +2083,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 7770030957319326726, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+      propertyPath: mailGrid
+      value: 
+      objectReference: {fileID: 1944810370}
+    - target: {fileID: 7770030959184002311, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+      propertyPath: m_Name
+      value: MailList2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770030959184002311, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+      propertyPath: m_TagString
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+--- !u!1 &1944810369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9111179990508604268, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+  m_PrefabInstance: {fileID: 1944810368}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1944810370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7770030959184002311, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+  m_PrefabInstance: {fileID: 1944810368}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2015525868
 PrefabInstance:
   m_ObjectHideFlags: 0
