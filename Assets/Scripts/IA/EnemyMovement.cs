@@ -17,6 +17,7 @@ public class EnemyMovement : MonoBehaviour
     private GameObject _player;
     [SerializeField] private float _normalSpeed = 1.5f;
     [SerializeField] private float _runningSpeed = 3;
+    [SerializeField] private AudioSource _audioScreamer;
 
     void Start()
     {
@@ -67,6 +68,7 @@ public class EnemyMovement : MonoBehaviour
     {
         SetEnemyState(EnemyState.Attack);
         navMeshAgent.SetDestination(transform.position);
+        _audioScreamer.Play();
     }
 
     private void OnCollisionEnter(Collision collision)
