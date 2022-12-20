@@ -17,9 +17,9 @@ MonoBehaviour:
   content: The girl you've been ignoring for 30 minutes !
   date: 05/09/2005 11:54PM
   previousMail: {fileID: 11400000, guid: 693ff0643a8a1cb4896c44625b7d395a, type: 2}
-  nextMailChoice1: {fileID: 0}
-  nextMailChoice2: {fileID: 0}
-  girlFace: {fileID: 0}
+  nextMailChoice1: {fileID: 11400000, guid: 3ef6dc9521384d546a578ceed4457d20, type: 2}
+  nextMailChoice2: {fileID: 11400000, guid: 79efa7df77e2f764ca9a42ddf2afe1d3, type: 2}
+  girlFace: {fileID: 1480010619, guid: d19c0acca61115447834a776154f4b8b, type: 3}
   isGlitched: 0
   canAnswer: 1
   screamer: 0

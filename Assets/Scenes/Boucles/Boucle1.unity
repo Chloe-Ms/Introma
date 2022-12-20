@@ -1275,6 +1275,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 2132348173}
     m_Modifications:
     - target: {fileID: 4985520972952230024, guid: da9449b9a4e7be14dbf0b40397cbf700, type: 3}
+      propertyPath: MoveSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985520972952230024, guid: da9449b9a4e7be14dbf0b40397cbf700, type: 3}
+      propertyPath: SprintSpeed
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985520972952230024, guid: da9449b9a4e7be14dbf0b40397cbf700, type: 3}
       propertyPath: _staminaSliderTransform
       value: 
       objectReference: {fileID: 1041704571}

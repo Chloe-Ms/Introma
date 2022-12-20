@@ -17,9 +17,9 @@ MonoBehaviour:
   content: Hey you ! Stop ignoring me, it's getting very embarrassing !
   date: 05/09/2005 11:54PM
   previousMail: {fileID: 0}
-  nextMailChoice1: {fileID: 0}
-  nextMailChoice2: {fileID: 0}
-  girlFace: {fileID: 0}
+  nextMailChoice1: {fileID: 11400000, guid: 42b7e6924430ade46aaef2682b929167, type: 2}
+  nextMailChoice2: {fileID: 11400000, guid: f2c07945628cdea4181786ead40d63a4, type: 2}
+  girlFace: {fileID: 1832974528, guid: d19c0acca61115447834a776154f4b8b, type: 3}
   isGlitched: 0
   canAnswer: 1
   screamer: 0

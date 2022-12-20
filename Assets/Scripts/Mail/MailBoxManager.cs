@@ -58,26 +58,34 @@ public class MailBoxManager : MonoBehaviour
     [SerializeField] GameObject _enemy;
     [SerializeField] GameObject _cle;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         if(_enemy != null)
             _enemy.SetActive(false);
         if (_cle != null)
             _cle.SetActive(false);
-        InitMailBox(mailListDay1);
+
+        switch (GameManager.Instance.day)
+        {
+            case GameManager.Day.First:
+                InitMailBox(mailListDay1);
+                break;
+            case GameManager.Day.Second:
+                InitMailBox(mailListDay2);
+                break;
+            case GameManager.Day.Third:
+                InitMailBox(mailListDay3);
+                break;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void AddMail(MailData mailData)
     {
         GameObject mail = Instantiate(mailPrefab, mailGrid.transform).Init(mailData);
         mail.transform.SetAsFirstSibling();
     }
+
     void DisplayMail(MailData mailData)
     {
         mailSubject.text = mailData.Subject;

@@ -333,7 +333,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mailListDay1:
-  - {fileID: 11400000, guid: 4d2ffe747bba1c848bb7cc2250e430ed, type: 2}
+  - {fileID: 11400000, guid: 44fb60fdfb4778a4b86e4c34f2d7da9e, type: 2}
+  - {fileID: 11400000, guid: 380d5025ef0abaa469505b626de9dade, type: 2}
+  - {fileID: 11400000, guid: 70dad6cf071f2724c8a82dd5f9e3415c, type: 2}
+  - {fileID: 11400000, guid: c0de706f6c7854f499690920115c8d20, type: 2}
+  - {fileID: 11400000, guid: 7fb8d9af64996c949b811c6e89d7ee39, type: 2}
+  - {fileID: 11400000, guid: 59c10cd0b80c85b42877a4728e538db0, type: 2}
   mailListDay2: []
   mailListDay3: []
   girlWindow: {fileID: 3155488165274725474}
@@ -353,6 +358,8 @@ MonoBehaviour:
   mailGrid: {fileID: 3155488166820554139}
   screamer: {fileID: 3155488167033674198}
   triggerComputer: {fileID: 0}
+  _enemy: {fileID: 0}
+  _cle: {fileID: 0}
 --- !u!114 &3155488165061727385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1528,7 +1535,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -1
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0

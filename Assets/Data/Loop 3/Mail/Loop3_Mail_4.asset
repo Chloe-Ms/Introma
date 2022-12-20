@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c4fe79c81dc044f8fa14e20f82bcd9, type: 3}
+  m_Name: Loop3_Mail_4
+  m_EditorClassIdentifier: 
+  sender: 
+  subject: 'Re : no subject'
+  content: I know everything about you.
+  date: 11/27/2008 01:37AM
+  previousMail: {fileID: 11400000, guid: 36f60110d9107b346a59e6b2fb359659, type: 2}
+  nextMailChoice1: {fileID: 11400000, guid: 390147a462f54d7499db25279057c615, type: 2}
+  nextMailChoice2: {fileID: 11400000, guid: 41d97cde3dc74dc44903e83b18076fdf, type: 2}
+  girlFace: {fileID: 286190896, guid: d94611a4f40e4ba42b25c2efec249e62, type: 3}
+  isGlitched: 1
+  canAnswer: 1
+  screamer: 0
+  timeToWaitForAnswer: 2
