@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c4fe79c81dc044f8fa14e20f82bcd9, type: 3}
+  m_Name: Office_Mail_6
+  m_EditorClassIdentifier: 
+  sender: Human Ressources
+  subject: Missing employee
+  content: "Hello everyone,\r\nOur colleague Rosemary Adams has been reported missing
+    by the authorities on December 5th. If you have any information about her location
+    or any other information, please contact the Washington Police Department. \r\nHave
+    a good day and stay safe.\r\n\r\nSincerely,\r\nKaren Smith\r"
+  date: 12/07/1997 08:14AM
+  previousMail: {fileID: 0}
+  nextMailChoice1: {fileID: 0}
+  nextMailChoice2: {fileID: 0}
+  girlFace: {fileID: 0}
+  isGlitched: 0
+  canAnswer: 0
+  screamer: 0
+  timeToWaitForAnswer: 0

@@ -12,9 +12,12 @@ public class GiftCode : MonoBehaviour, IPointerEnterHandler
 
     [SerializeField] private PopUps popUps;
 
+    private Animator player;
+
     void Start()
     {
         inputField = this.GetComponent<TMP_InputField>();
+        player = GameObject.Find("CameraPC").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -41,6 +44,7 @@ public class GiftCode : MonoBehaviour, IPointerEnterHandler
         }
         else
         {
+            player.SetTrigger("ScreenShake");
             inputField.text = "";
         }
     }

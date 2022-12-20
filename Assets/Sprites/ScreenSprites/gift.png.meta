@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 86dd072036fb4174e8a3714c0471008b
+guid: eaea02bdc6b63e043890857e6d8cbbfa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -53,7 +53,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 0
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GiftIconeFrame_0
+      name: gift_0
       rect:
         serializedVersion: 2
-        x: 43
-        y: 2
-        width: 11
-        height: 11
+        x: 80
+        y: 63
+        width: 42
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ee24244674dd6d4bba18c98b09e02e2
-      internalID: -1760694928
+      spriteID: 75cb68d6aa9c6f64391b36d4561c7550
+      internalID: -573285725
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 2e24eb664b7dff04aa43ea95149cfb1f
+    spriteID: 58dfd8319ef3ea64a83f61532fbcb2ae
     internalID: 0
     vertices: []
     indices: 
@@ -136,7 +136,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GiftIconeFrame_0: -1760694928
+      gift_0: -573285725
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
