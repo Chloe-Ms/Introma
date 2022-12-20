@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TriggerDoor : MonoBehaviour
 {
     [SerializeField] private PlayerInteraction playerInteraction;
     [SerializeField] GameObject _cameraPOV;
     private bool _isDoorOpen = false;
-
+    private bool _displayNeedKey = false;
     private bool _inTriggerDoor = false;
 
     private void OnTriggerEnter(Collider other)
@@ -26,7 +27,7 @@ public class TriggerDoor : MonoBehaviour
         if (_inTriggerDoor && Physics.Raycast(_cameraPOV.transform.position, _cameraPOV.transform.forward, distanceToTarget, playerInteraction.DoorMask) &&
             !Physics.Raycast(_cameraPOV.transform.position, _cameraPOV.transform.forward, distanceToTarget, playerInteraction.ObstacleMask) && !_isDoorOpen)
         {
-            if (!playerInteraction.GetTextNeedKeyActive())
+            if (!playerInteraction.GetTextNeedKeyActive() && !_displayNeedKey)
             {
                 playerInteraction.SetTextInteractActive(true);
             }
@@ -36,7 +37,7 @@ public class TriggerDoor : MonoBehaviour
                 if (playerInteraction.IsKeyPicked)
                 {
                     _isDoorOpen = true;
-                    //START OPEN DOOR
+                    GameManager.Instance.NextDay();
                 } else
                 {
                     StartCoroutine(DisplayTextNeedKey());
@@ -52,8 +53,10 @@ public class TriggerDoor : MonoBehaviour
 
     private IEnumerator DisplayTextNeedKey()
     {
+        _displayNeedKey = true;
         playerInteraction.SetTextNeedKeyActive(true);
         yield return new WaitForSeconds(3f);
         playerInteraction.SetTextNeedKeyActive(false);
+        _displayNeedKey = false;
     }
 }

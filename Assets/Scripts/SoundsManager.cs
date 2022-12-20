@@ -17,6 +17,7 @@ public class SoundsManager : MonoBehaviour
 
     IEnumerator PlaySound()
     {
+        yield return new WaitForSeconds(20f);
         while (true)
         {
             yield return new WaitForSeconds(_delay);
