@@ -63,6 +63,9 @@ public class MailBoxManager : MonoBehaviour
     {
         if(_enemy != null)
             _enemy.SetActive(false);
+        if (_cle != null)
+            _cle.SetActive(false);
+
         switch (GameManager.Instance.day)
         {
             case GameManager.Day.First:
@@ -111,8 +114,10 @@ public class MailBoxManager : MonoBehaviour
         this.GetComponent<ScreenSoundsManager>().ScreamerSound();
         screamer.SetActive(true);
         triggerComputer.GetOffComputer();
-        _enemy.SetActive(true);
-        _cle.SetActive(true);
+        if (_enemy != null)
+            _enemy.SetActive(true);
+        if (_cle != null)
+            _cle.SetActive(true);
     }
     public void DisplayAnswers()
     {
