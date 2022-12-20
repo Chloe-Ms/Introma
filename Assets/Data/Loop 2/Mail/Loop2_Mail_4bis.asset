@@ -17,8 +17,8 @@ MonoBehaviour:
   content: I'm literally next to you right now
   date: 05/09/2005 11:55PM
   previousMail: {fileID: 11400000, guid: 472e50cb75f8b23478943d59578e847c, type: 2}
-  nextMailChoice1: {fileID: 0}
-  nextMailChoice2: {fileID: 0}
+  nextMailChoice1: {fileID: 11400000, guid: fdaa91a8903d6c145bc56f4e234edc3f, type: 2}
+  nextMailChoice2: {fileID: 11400000, guid: 41d97cde3dc74dc44903e83b18076fdf, type: 2}
   girlFace: {fileID: 0}
   isGlitched: 0
   canAnswer: 1

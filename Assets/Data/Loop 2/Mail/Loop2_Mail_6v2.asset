@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sender: Unknown
   subject: 'Re : Hellooooooo'
-  content: 
-  date: 
-  previousMail: {fileID: 0}
+  content: "Pc n\xB056"
+  date: 09/05/2005 11:56PM
+  previousMail: {fileID: 11400000, guid: c5a63dbae820bc44194f45869841a535, type: 2}
   nextMailChoice1: {fileID: 0}
   nextMailChoice2: {fileID: 0}
   girlFace: {fileID: 0}
-  isGlitched: 0
+  isGlitched: 1
   canAnswer: 0
   screamer: 0
   timeToWaitForAnswer: 2

@@ -18,8 +18,8 @@ MonoBehaviour:
     can you be alone ?!
   date: 05/09/2005 11:54PM
   previousMail: {fileID: 11400000, guid: 693ff0643a8a1cb4896c44625b7d395a, type: 2}
-  nextMailChoice1: {fileID: 0}
-  nextMailChoice2: {fileID: 0}
+  nextMailChoice1: {fileID: 11400000, guid: 89e8f6ed833112944acb9260b0322b28, type: 2}
+  nextMailChoice2: {fileID: 11400000, guid: b2472a368df3ce243b0a5ade172651f9, type: 2}
   girlFace: {fileID: 0}
   isGlitched: 0
   canAnswer: 1

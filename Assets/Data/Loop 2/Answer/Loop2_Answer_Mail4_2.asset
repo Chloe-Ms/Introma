@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97c4fe79c81dc044f8fa14e20f82bcd9, type: 3}
-  m_Name: Loop2_Mail_2
+  m_Name: Loop2_Answer_Mail4_2
   m_EditorClassIdentifier: 
-  sender: Unknown
+  sender: You
   subject: 'Re : Hellooooooo'
-  content: Oh 'cmon I've been running, screaming and calling you for 30 minutes now
-    !
-  date: 05/09/2005 11:54PM
-  previousMail: {fileID: 11400000, guid: 693ff0643a8a1cb4896c44625b7d395a, type: 2}
-  nextMailChoice1: {fileID: 11400000, guid: 3c4b8601b477a2347808cea7a1d6f1b3, type: 2}
-  nextMailChoice2: {fileID: 11400000, guid: 279ce65c01e1bb84291adaf834b0d7b1, type: 2}
+  content: You're lying
+  date: 
+  previousMail: {fileID: 11400000, guid: f34bac209d436b94e8d03ddcbc18db19, type: 2}
+  nextMailChoice1: {fileID: 11400000, guid: 5bb5569d3d69ba140b145c4b9af92601, type: 2}
+  nextMailChoice2: {fileID: 0}
   girlFace: {fileID: 0}
   isGlitched: 0
-  canAnswer: 1
+  canAnswer: 0
   screamer: 0
-  timeToWaitForAnswer: 2
+  timeToWaitForAnswer: 0

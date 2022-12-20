@@ -18,8 +18,8 @@ MonoBehaviour:
     ?'
   date: 05/09/2005 11:55PM
   previousMail: {fileID: 11400000, guid: 2bfd6155055ecff4fab11277a78a9d50, type: 2}
-  nextMailChoice1: {fileID: 0}
-  nextMailChoice2: {fileID: 0}
+  nextMailChoice1: {fileID: 11400000, guid: 0e35594947f51ab488731ea6f39dd73b, type: 2}
+  nextMailChoice2: {fileID: 11400000, guid: 207104a6b0f80a74689f84f93a50ad06, type: 2}
   girlFace: {fileID: 0}
   isGlitched: 0
   canAnswer: 1
