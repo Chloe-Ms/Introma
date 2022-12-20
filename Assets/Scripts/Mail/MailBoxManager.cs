@@ -61,7 +61,10 @@ public class MailBoxManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _enemy.SetActive(false);
+        if(_enemy != null)
+            _enemy.SetActive(false);
+        if (_cle != null)
+            _cle.SetActive(false);
         InitMailBox(mailListDay1);
     }
 
@@ -103,8 +106,10 @@ public class MailBoxManager : MonoBehaviour
         this.GetComponent<ScreenSoundsManager>().ScreamerSound();
         screamer.SetActive(true);
         triggerComputer.GetOffComputer();
-        _enemy.SetActive(true);
-        _cle.SetActive(true);
+        if (_enemy != null)
+            _enemy.SetActive(true);
+        if (_cle != null)
+            _cle.SetActive(true);
     }
     public void DisplayAnswers()
     {
