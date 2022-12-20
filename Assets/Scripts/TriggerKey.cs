@@ -19,6 +19,7 @@ public class TriggerKey : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         _inTriggerKey = false;
+        playerInteraction.SetTextInteractActive(false);
     }
 
     private void OnTriggerStay(Collider other)

@@ -55,9 +55,13 @@ public class MailBoxManager : MonoBehaviour
     private MailData chosenAnswerData;
     private bool canSendAnswer;
 
+    [SerializeField] GameObject _enemy;
+    [SerializeField] GameObject _cle;
+
     // Start is called before the first frame update
     void Start()
     {
+        _enemy.SetActive(false);
         InitMailBox(mailListDay1);
     }
 
@@ -99,6 +103,8 @@ public class MailBoxManager : MonoBehaviour
         this.GetComponent<ScreenSoundsManager>().ScreamerSound();
         screamer.SetActive(true);
         triggerComputer.GetOffComputer();
+        _enemy.SetActive(true);
+        _cle.SetActive(true);
     }
     public void DisplayAnswers()
     {

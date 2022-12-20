@@ -28,6 +28,7 @@ public class TriggerComputer : MonoBehaviour
     {
         _inTriggerComputer = false;
         _cameraManager.SetNormalCameraOn();
+        playerInteraction.SetTextInteractActive(false);
     }
 
     private void OnTriggerStay(Collider other)
@@ -62,10 +63,13 @@ public class TriggerComputer : MonoBehaviour
                     screen.SetActive(false);
                     _pointer.SetActive(true);
                 }
-                }
-                _inputCaught = _input.interact;
             }
+            _inputCaught = _input.interact;
+        } else
+        {
+            playerInteraction.SetTextInteractActive(false);
         }
+    }
     public void GetOffComputer()
     {
         if (_isOnPC)

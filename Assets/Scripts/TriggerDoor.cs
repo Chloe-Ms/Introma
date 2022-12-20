@@ -17,6 +17,7 @@ public class TriggerDoor : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         _inTriggerDoor = false;
+        playerInteraction.SetTextInteractActive(false);
     }
 
     private void OnTriggerStay(Collider other)

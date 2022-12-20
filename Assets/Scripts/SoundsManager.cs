@@ -25,7 +25,7 @@ public class SoundsManager : MonoBehaviour
             {
                 Debug.Log("PLAY");
                 int index = Random.Range(0, _audios.Length);
-                _audioSource.PlayOneShot(_audios[index]);
+                _audioSource.PlayOneShot(_audios[index],0.28f);
             }else
             {
                 Debug.Log("NO SOUND");

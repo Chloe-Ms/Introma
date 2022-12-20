@@ -9,7 +9,7 @@ public class EnemyFieldOfViewEditor : Editor
     private void OnSceneGUI()
     {
         EnemyFieldOfView fov = (EnemyFieldOfView)target;
-        Handles.color = Color.black;
+        Handles.color = Color.white;
         Handles.DrawWireArc(fov.transform.position, Vector3.up, Vector3.forward, 360, fov.RadiusFront);
         Handles.DrawWireArc(fov.transform.position, Vector3.up, Vector3.forward, 360, fov.RadiusBack);
 
