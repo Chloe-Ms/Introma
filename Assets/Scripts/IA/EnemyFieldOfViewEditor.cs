@@ -13,7 +13,7 @@ public class EnemyFieldOfViewEditor : Editor
 
         Vector3 viewAngle01 = DirectionFromAngle(fov.transform.eulerAngles.y, -fov.AngleFront / 2);
         Vector3 viewAngle02 = DirectionFromAngle(fov.transform.eulerAngles.y, fov.AngleFront / 2);
-        Vector3 viewAngle03 = DirectionFromAngle(fov.transform.eulerAngles.y , -fov.AngleBack / 2);
+        Vector3 viewAngle03 = DirectionFromAngle(fov.transform.eulerAngles.y, -fov.AngleBack / 2);
         Vector3 viewAngle04 = DirectionFromAngle(fov.transform.eulerAngles.y, fov.AngleBack / 2);
 
         Handles.color = Color.red;

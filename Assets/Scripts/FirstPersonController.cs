@@ -130,7 +130,7 @@ namespace StarterAssets
 
 		private void UpdateUIStamina()
 		{
-			_staminaSliderTransform.offsetMax = new Vector2(-((120 * (1 - stamina / staminaMax)) - 5), _staminaSliderTransform.offsetMax.y);
+			_staminaSliderTransform.offsetMax = new Vector2(-((160 * (1 - stamina / staminaMax)) - 5), _staminaSliderTransform.offsetMax.y);
         }
 
         private void CheckStamina(bool isDecreasing)

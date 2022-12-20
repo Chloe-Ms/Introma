@@ -57,7 +57,7 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator WaitToLoadScene()
     {
         yield return new WaitForSeconds(_timeDuringScreamer);
-        SceneManager.LoadScene(_sceneToLoadAfterScreamer);
+        GameManager.Instance.NextDay();
     }
 
 

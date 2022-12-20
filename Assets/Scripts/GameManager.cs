@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
         FadeImage.SetTrigger("FadeOut");
         StartCoroutine(DayStart());
     }
+
     IEnumerator DayStart()
     {
         yield return new WaitForSeconds(1.5f);

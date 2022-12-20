@@ -76,8 +76,9 @@ public class EnemyFieldOfView : MonoBehaviour
             {
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMask)) // if player at a good distance
+                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMask)) { // if player at a good distance
                     canSeePlayer = true;
+                }
                 else
                     canSeePlayer = false;
             }
@@ -96,8 +97,10 @@ public class EnemyFieldOfView : MonoBehaviour
             {
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMask)) // if player at a good distance
+                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMask))
+                { // if player at a good distance
                     canSeePlayer = true;
+                }
                 else
                     canSeePlayer = false || canSeePlayer;
             }

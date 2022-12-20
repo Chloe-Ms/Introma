@@ -1223,7 +1223,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569108590}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 2.23, y: 8.14, z: 5.06}
+  m_LocalPosition: {x: 2.23, y: 8.14, z: 3.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1365,7 +1365,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 570793252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 150.7, y: -34.2, z: 90}
+  m_LocalPosition: {x: 148.24, y: -34.2, z: 87.77}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1386,10 +1386,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyMovement: {fileID: 570793258}
-  radiusFront: 40
-  angleFront: 148
+  radiusFront: 50
+  angleFront: 150
   radiusBack: 10
-  angleBack: 217
+  angleBack: 225
   targetMask:
     serializedVersion: 2
     m_Bits: 128
@@ -1448,9 +1448,9 @@ MonoBehaviour:
   - {fileID: 30692745}
   - {fileID: 2004050427}
   - {fileID: 1888321453}
-  _normalSpeed: 5
+  _normalSpeed: 7
   _runningSpeed: 40
-  _audioScreamer: {fileID: 0}
+  _audioScreamer: {fileID: 570793260}
 --- !u!54 &570793259
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1479,7 +1479,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: da1d732412fd5454ca06275b12f42531, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1639,13 +1639,29 @@ PrefabInstance:
       propertyPath: _textInteract
       value: 
       objectReference: {fileID: 444653632}
+    - target: {fileID: 1261662564830115882, guid: 24683bf5978456d429944d58d25fb460, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261662564830115882, guid: 24683bf5978456d429944d58d25fb460, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2191845079275934432, guid: 24683bf5978456d429944d58d25fb460, type: 3}
       propertyPath: _staminaSliderTransform
       value: 
       objectReference: {fileID: 1041704571}
+    - target: {fileID: 3228590232255589436, guid: 24683bf5978456d429944d58d25fb460, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6582819639887095518, guid: 24683bf5978456d429944d58d25fb460, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582819639887095518, guid: 24683bf5978456d429944d58d25fb460, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6582819639887095519, guid: 24683bf5978456d429944d58d25fb460, type: 3}
       propertyPath: m_RootOrder
@@ -2373,7 +2389,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4533924467935138528, guid: 39964718314598d4ea9a716971bcac5d, type: 3}
       propertyPath: _delay
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4533924467935138528, guid: 39964718314598d4ea9a716971bcac5d, type: 3}
       propertyPath: _audioSource
@@ -2546,7 +2562,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1168278977}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -43.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3453,7 +3469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0776e2cd6f5750b49879c1e45620b838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerMovement: {fileID: 0}
+  _playerMovement: {fileID: 622212210}
   _timeDuringScreamer: 3
   _sceneToLoadAfterScreamer: Boucle1
   _cameraManager: {fileID: 1647791342}
