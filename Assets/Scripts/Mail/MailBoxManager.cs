@@ -7,17 +7,7 @@ using UnityEngine.UI;
 
 public class MailBoxManager : MonoBehaviour
 {
-    private static MailBoxManager instance;
 
-    public static MailBoxManager Instance
-    {
-        get
-        {
-            if (instance == null)
-                instance = FindObjectOfType<MailBoxManager>();
-            return instance;
-        }
-    }
 
     [Header("\nInitial Mail Boxes\n")]
     [SerializeField] private MailData[] mailListDay1;
@@ -63,27 +53,18 @@ public class MailBoxManager : MonoBehaviour
     {
         if(_enemy != null)
             _enemy.SetActive(false);
+
         if (_cle != null)
             _cle.SetActive(false);
-
-        switch (GameManager.Instance.day)
-        {
-            case GameManager.Day.First:
-                InitMailBox(mailListDay1);
-                break;
-            case GameManager.Day.Second:
-                InitMailBox(mailListDay2);
-                break;
-            case GameManager.Day.Third:
-                InitMailBox(mailListDay3);
-                break;
-        }
+        GetDayMail();
     }
 
     void AddMail(MailData mailData)
     {
         GameObject mail = Instantiate(mailPrefab, mailGrid.transform).Init(mailData);
         mail.transform.SetAsFirstSibling();
+
+        Debug.Log(mailGrid.tag);
     }
 
     void DisplayMail(MailData mailData)
@@ -114,10 +95,8 @@ public class MailBoxManager : MonoBehaviour
         this.GetComponent<ScreenSoundsManager>().ScreamerSound();
         screamer.SetActive(true);
         triggerComputer.GetOffComputer();
-        if (_enemy != null)
-            _enemy.SetActive(true);
-        if (_cle != null)
-            _cle.SetActive(true);
+        _enemy.SetActive(true);
+        _cle.SetActive(true);
     }
     public void DisplayAnswers()
     {
@@ -158,18 +137,35 @@ public class MailBoxManager : MonoBehaviour
             AddMail(chosenAnswerData.NextMailChoice1);
         }
     }
+    public void GetDayMail()
+    {
+        Debug.Log("daymail");
+        switch (GameManager.Instance.day)
+        {
+            case GameManager.Day.First:
+                InitMailBox(mailListDay1);
+                break;
+            case GameManager.Day.Second:
+                InitMailBox(mailListDay2);
+                break;
+            case GameManager.Day.Third:
+                InitMailBox(mailListDay3);
+                break;
+        }
+    }
 
     private void InitMailBox(MailData[] mailList)
     {
         //StartCoroutine(gameObject.GetComponent<TextDisplay>().ScrollSentence(customer.Data.RequestStartText, _requestText));
 
-        //// Destroy all mails in mailbox
-        //foreach (Transform child in mailGrid.transform)
-        //    Destroy(child.gameObject);
+        // Destroy all mails in mailbox
+        foreach (Transform child in mailGrid.transform)
+            Destroy(child.gameObject);
 
         // Instantiate all mails from List
         foreach (MailData mail in mailList)
         {
+            Debug.Log(mail.Subject);
             AddMail(mail);
         }
     }

@@ -27,13 +27,15 @@ public class GameManager : MonoBehaviour
         Second = 1,
         Third = 2};
 
-    public Day day = Day.First; 
+    public Day day = Day.First;
+    private MailBoxManager mailBoxManager;
 
     [SerializeField] private Animator FadeImage;
 
     void Start()
     {
-        
+        //mailBoxManager = GameObject.FindObjectOfType<MailBoxManager>();
+        //mailBoxManager.GetDayMail();
     }
 
     // Update is called once per frame
@@ -54,6 +56,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene((int)day);
         FadeImage.SetTrigger("FadeIn");
+        //mailBoxManager = GameObject.FindObjectOfType<MailBoxManager>();
+        //mailBoxManager.GetDayMail();
     }
 
 }

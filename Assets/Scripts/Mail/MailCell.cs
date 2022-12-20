@@ -10,6 +10,7 @@ public class MailCell : MonoBehaviour
     [SerializeField] private TMP_Text mailDate;
     private MailData mailData;
     public bool canAnswer;
+    private MailBoxManager mailBoxManager;
 
     private void Start()
     {
@@ -25,7 +26,8 @@ public class MailCell : MonoBehaviour
     }
     public void Display()
     {
-        MailBoxManager.Instance.SendMessage("DisplayMail",this.mailData);
+        mailBoxManager = GameObject.FindObjectOfType<MailBoxManager>();
+        mailBoxManager.SendMessage("DisplayMail",this.mailData);
     }
     void OnApplicationQuit()
     {

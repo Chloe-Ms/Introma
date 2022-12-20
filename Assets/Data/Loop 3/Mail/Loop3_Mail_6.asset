@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Loop3_Mail_6
   m_EditorClassIdentifier: 
   sender: 
-  subject: i know everything
+  subject: you should run
   content: 
   date: 
   previousMail: {fileID: 11400000, guid: 2bef554d28d04d6428678310bac4b0b5, type: 2}

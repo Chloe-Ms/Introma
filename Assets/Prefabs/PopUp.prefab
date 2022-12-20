@@ -171,7 +171,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6822128682869360956}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -180,8 +180,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000094958, y: -5.3}
-  m_SizeDelta: {x: 111.5329, y: 112.0778}
+  m_AnchoredPosition: {x: -0.7422, y: -9.4434}
+  m_SizeDelta: {x: 130.1765, y: 130.8076}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6822128682869360953
 CanvasRenderer:
@@ -312,6 +312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e241d4980947384b91e46870269b45f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
   clickSound: {fileID: 8300000, guid: d1b035a44246f984db8f04b7a601870c, type: 3}
   errorSound: {fileID: 8300000, guid: 46bc70528d591674989918ff3bb536ab, type: 3}
+  screamerSound: {fileID: 0}

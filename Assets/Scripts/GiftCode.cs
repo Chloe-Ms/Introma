@@ -17,7 +17,7 @@ public class GiftCode : MonoBehaviour, IPointerEnterHandler
     void Start()
     {
         inputField = this.GetComponent<TMP_InputField>();
-        player = GameObject.Find("CameraPC").GetComponent<Animator>();
+        //player = GameObject.Find("CameraPC").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -44,7 +44,7 @@ public class GiftCode : MonoBehaviour, IPointerEnterHandler
         }
         else
         {
-            player.SetTrigger("ScreenShake");
+            //player.SetTrigger("ScreenShake");
             inputField.text = "";
         }
     }
