@@ -333,7 +333,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mailListDay1:
-  - {fileID: 11400000, guid: 4d2ffe747bba1c848bb7cc2250e430ed, type: 2}
+  - {fileID: 11400000, guid: 44fb60fdfb4778a4b86e4c34f2d7da9e, type: 2}
+  - {fileID: 11400000, guid: 380d5025ef0abaa469505b626de9dade, type: 2}
+  - {fileID: 11400000, guid: 70dad6cf071f2724c8a82dd5f9e3415c, type: 2}
+  - {fileID: 11400000, guid: c0de706f6c7854f499690920115c8d20, type: 2}
+  - {fileID: 11400000, guid: 7fb8d9af64996c949b811c6e89d7ee39, type: 2}
+  - {fileID: 11400000, guid: 59c10cd0b80c85b42877a4728e538db0, type: 2}
   mailListDay2: []
   mailListDay3: []
   girlWindow: {fileID: 3155488165274725474}
