@@ -335,26 +335,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 59c10cd0b80c85b42877a4728e538db0, type: 2}
   mailListDay2:
   - {fileID: 11400000, guid: 693ff0643a8a1cb4896c44625b7d395a, type: 2}
-  - {fileID: 11400000, guid: 2bfd6155055ecff4fab11277a78a9d50, type: 2}
-  - {fileID: 11400000, guid: 472e50cb75f8b23478943d59578e847c, type: 2}
-  - {fileID: 11400000, guid: f115334bae261f74c96ac0dbbde065b3, type: 2}
-  - {fileID: 11400000, guid: c5a63dbae820bc44194f45869841a535, type: 2}
-  - {fileID: 11400000, guid: f34bac209d436b94e8d03ddcbc18db19, type: 2}
-  - {fileID: 11400000, guid: 1975f24ebd184404f94043fc3b9a1d4d, type: 2}
-  - {fileID: 11400000, guid: 148db7a805e2fa744838b3907863c88f, type: 2}
-  - {fileID: 11400000, guid: a4809c00e7ae7e642ae391e5e9d8756b, type: 2}
-  - {fileID: 11400000, guid: 5b33fa535bbc46b499014496eed9e1b8, type: 2}
-  - {fileID: 11400000, guid: e14d31d91cd1bbc4f9f2709c2b882c49, type: 2}
-  - {fileID: 11400000, guid: 5bb5569d3d69ba140b145c4b9af92601, type: 2}
-  - {fileID: 11400000, guid: f7f21b1700e554e4d814c38814b15449, type: 2}
-  - {fileID: 11400000, guid: 1810dfd5e4d50a945bf30c35748ee859, type: 2}
   mailListDay3:
   - {fileID: 11400000, guid: a6cbc17fb6cbb6d40856c1701ec0e20d, type: 2}
-  - {fileID: 11400000, guid: 19d5cbd083562f54f898f1e9ca172cac, type: 2}
-  - {fileID: 11400000, guid: 36f60110d9107b346a59e6b2fb359659, type: 2}
-  - {fileID: 11400000, guid: 2bef554d28d04d6428678310bac4b0b5, type: 2}
-  - {fileID: 11400000, guid: 3ba10de1018df554bbd918a9f7a344be, type: 2}
-  - {fileID: 11400000, guid: 6a81aa44f108cb449bf8549dff72e11a, type: 2}
   girlWindow: {fileID: 3155488165274725474}
   girlFace: {fileID: 3155488165119772033}
   mailSubject: {fileID: 3155488165526242810}
