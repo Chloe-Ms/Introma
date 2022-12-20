@@ -1443,8 +1443,8 @@ MonoBehaviour:
   - {fileID: 30692745}
   - {fileID: 2004050427}
   - {fileID: 1888321453}
-  _normalSpeed: 1.5
-  _runningSpeed: 4
+  _normalSpeed: 5
+  _runningSpeed: 20
 --- !u!54 &570793259
 Rigidbody:
   m_ObjectHideFlags: 0
