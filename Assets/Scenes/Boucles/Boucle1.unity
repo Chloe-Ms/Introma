@@ -367,6 +367,11 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!1 &233631546 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9111179990508604268, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+  m_PrefabInstance: {fileID: 514517906}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &251899320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -720,6 +725,10 @@ PrefabInstance:
       propertyPath: _input
       value: 
       objectReference: {fileID: 1024172478}
+    - target: {fileID: 800291020, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+      propertyPath: screen
+      value: 
+      objectReference: {fileID: 233631546}
     - target: {fileID: 800291020, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
       propertyPath: _pointer
       value: 
