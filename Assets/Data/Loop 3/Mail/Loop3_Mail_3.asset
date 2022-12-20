@@ -17,9 +17,9 @@ MonoBehaviour:
   content: I know what you did.
   date: 11/27/2008 01:37AM
   previousMail: {fileID: 11400000, guid: 19d5cbd083562f54f898f1e9ca172cac, type: 2}
-  nextMailChoice1: {fileID: 0}
-  nextMailChoice2: {fileID: 0}
-  girlFace: {fileID: 0}
+  nextMailChoice1: {fileID: 11400000, guid: 200c32196f7421943b135a2e4fbfb744, type: 2}
+  nextMailChoice2: {fileID: 11400000, guid: e616a12f8150c694282770f4380fd003, type: 2}
+  girlFace: {fileID: 286190896, guid: d94611a4f40e4ba42b25c2efec249e62, type: 3}
   isGlitched: 1
   canAnswer: 1
   screamer: 0

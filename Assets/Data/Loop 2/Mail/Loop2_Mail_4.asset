@@ -19,8 +19,8 @@ MonoBehaviour:
   previousMail: {fileID: 11400000, guid: 2bfd6155055ecff4fab11277a78a9d50, type: 2}
   nextMailChoice1: {fileID: 11400000, guid: fdaa91a8903d6c145bc56f4e234edc3f, type: 2}
   nextMailChoice2: {fileID: 11400000, guid: 41d97cde3dc74dc44903e83b18076fdf, type: 2}
-  girlFace: {fileID: 0}
-  isGlitched: 0
+  girlFace: {fileID: 1198912865, guid: d19c0acca61115447834a776154f4b8b, type: 3}
+  isGlitched: 1
   canAnswer: 1
   screamer: 0
   timeToWaitForAnswer: 2
