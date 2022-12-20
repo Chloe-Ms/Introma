@@ -358,6 +358,8 @@ MonoBehaviour:
   mailGrid: {fileID: 3155488166820554139}
   screamer: {fileID: 3155488167033674198}
   triggerComputer: {fileID: 0}
+  _enemy: {fileID: 0}
+  _cle: {fileID: 0}
 --- !u!114 &3155488165061727385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1533,7 +1535,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -1
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
