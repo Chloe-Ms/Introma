@@ -53,24 +53,10 @@ public class MailBoxManager : MonoBehaviour
     {
         if(_enemy != null)
             _enemy.SetActive(false);
-<<<<<<< Updated upstream
-        switch (GameManager.Instance.day)
-        {
-            case GameManager.Day.First:
-                InitMailBox(mailListDay1);
-                break;
-            case GameManager.Day.Second:
-                InitMailBox(mailListDay2);
-                break;
-            case GameManager.Day.Third:
-                InitMailBox(mailListDay3);
-                break;
-        }
-=======
+
         if (_cle != null)
             _cle.SetActive(false);
         GetDayMail();
->>>>>>> Stashed changes
     }
 
     void AddMail(MailData mailData)
