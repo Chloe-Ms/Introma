@@ -287,6 +287,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8232751458150131050, guid: a1b034f39d4a8ea448d69ae35961f72d, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1b034f39d4a8ea448d69ae35961f72d, type: 3}
 --- !u!1 &167772491
@@ -960,6 +964,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7770030959184002311, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
   m_PrefabInstance: {fileID: 514517906}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &514517908 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1188875629, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+  m_PrefabInstance: {fileID: 514517906}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &600663628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2021,7 +2036,7 @@ PrefabInstance:
     - target: {fileID: 7474190780479990377, guid: 9cd28e4b04c2bdd439af08ef78aeb40e, type: 3}
       propertyPath: _cameraComputer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 514517908}
     - target: {fileID: 7474190780479990377, guid: 9cd28e4b04c2bdd439af08ef78aeb40e, type: 3}
       propertyPath: _cameraPOVPlayer
       value: 
