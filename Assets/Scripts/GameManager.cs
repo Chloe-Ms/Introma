@@ -41,13 +41,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log((int)day);
     }
     public void NextDay()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        day = (Day)(((int)day + 1) % 3);
+        day = (Day)(GetNewDay((int)day,3));
         FadeImage.SetTrigger("FadeOut");
         StartCoroutine(DayStart());
     }
@@ -55,10 +54,21 @@ public class GameManager : MonoBehaviour
     IEnumerator DayStart()
     {
         yield return new WaitForSeconds(1.5f);
+        Debug.Log("New day : "+(int)day);
         SceneManager.LoadScene((int)day);
         FadeImage.SetTrigger("FadeIn");
         //mailBoxManager = GameObject.FindObjectOfType<MailBoxManager>();
         //mailBoxManager.GetDayMail();
+    }
+    private int GetNewDay(int currentDay, int numberOfDays)
+    {
+        currentDay++;
+        if (currentDay > numberOfDays - 1)
+        {
+            return 0;
+        }
+        else
+            return currentDay;
     }
 
 }

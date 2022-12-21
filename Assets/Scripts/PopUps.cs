@@ -39,6 +39,7 @@ public class PopUps : MonoBehaviour
                 return;
         }
         GameManager.Instance.NextDay();
+        hasStarted = false;
     }
     public void SecondRound()
     {
@@ -46,10 +47,10 @@ public class PopUps : MonoBehaviour
     }
     public IEnumerator StartPopUp()
     {
-        hasStarted = true;
         soundsManager.ErrorSound();
         firstPopUp.SetActive(true);
         yield return new WaitForSeconds(1);
+        hasStarted = true;
         StartCoroutine(PopUpRound(popUpsRound1));
     }
     IEnumerator PopUpRound(GameObject[] popUpsLists) {

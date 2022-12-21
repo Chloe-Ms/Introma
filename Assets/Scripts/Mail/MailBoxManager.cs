@@ -63,8 +63,6 @@ public class MailBoxManager : MonoBehaviour
     {
         GameObject mail = Instantiate(mailPrefab, mailGrid.transform).Init(mailData);
         mail.transform.SetAsFirstSibling();
-
-        Debug.Log(mailGrid.tag);
     }
 
     void DisplayMail(MailData mailData)
@@ -139,7 +137,6 @@ public class MailBoxManager : MonoBehaviour
     }
     public void GetDayMail()
     {
-        Debug.Log("daymail");
         switch (GameManager.Instance.day)
         {
             case GameManager.Day.First:
@@ -165,7 +162,6 @@ public class MailBoxManager : MonoBehaviour
         // Instantiate all mails from List
         foreach (MailData mail in mailList)
         {
-            Debug.Log(mail.Subject);
             AddMail(mail);
         }
     }

@@ -38,6 +38,7 @@ public class TriggerDoor : MonoBehaviour
                 {
                     _isDoorOpen = true;
                     GameManager.Instance.NextDay();
+                    playerInteraction.IsKeyPicked = false; //TEMPORARY FIX - NextDay() should be called once
                 } else
                 {
                     StartCoroutine(DisplayTextNeedKey());
