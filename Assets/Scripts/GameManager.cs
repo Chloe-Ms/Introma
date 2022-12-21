@@ -37,9 +37,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //mailBoxManager = GameObject.FindObjectOfType<MailBoxManager>();
-        //mailBoxManager.GetDayMail();
-        Win();
+        //Win(); //FOR TEST PURPOSES
     }
 
     // Update is called once per frame
