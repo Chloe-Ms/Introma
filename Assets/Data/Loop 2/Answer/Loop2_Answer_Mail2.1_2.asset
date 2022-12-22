@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97c4fe79c81dc044f8fa14e20f82bcd9, type: 3}
-  m_Name: Loop3_Mail_5
+  m_Name: Loop2_Answer_Mail2.1_2
   m_EditorClassIdentifier: 
-  sender: 
-  subject: I will have my revenge John.
-  content: 
-  date: 11/27/2008 01:38AM
-  previousMail: {fileID: 11400000, guid: 2bef554d28d04d6428678310bac4b0b5, type: 2}
-  nextMailChoice1: {fileID: 0}
+  sender: You
+  subject: 'Re : Hellooooooo'
+  content: Bullshit ! There's no one here
+  date: 
+  previousMail: {fileID: 11400000, guid: 2bfd6155055ecff4fab11277a78a9d50, type: 2}
+  nextMailChoice1: {fileID: 11400000, guid: c5a63dbae820bc44194f45869841a535, type: 2}
   nextMailChoice2: {fileID: 0}
-  girlFace: {fileID: 1777596834, guid: d94611a4f40e4ba42b25c2efec249e62, type: 3}
-  isGlitched: 1
+  girlFace: {fileID: 0}
+  isGlitched: 0
   canAnswer: 0
-  screamer: 1
-  timeToWaitForAnswer: 1
+  screamer: 0
+  timeToWaitForAnswer: 0

@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97c4fe79c81dc044f8fa14e20f82bcd9, type: 3}
-  m_Name: Loop2_Mail_3bis
+  m_Name: Loop2_Mail_3_1
   m_EditorClassIdentifier: 
   sender: Unknown
   subject: 'Re : Hellooooooo'
-  content: How can't you notice me when i'm just next to you ??
+  content: ' Stop lying to me ! How can''t you notice me when i''m just next to you
+    ?'
   date: 05/09/2005 11:55PM
-  previousMail: {fileID: 11400000, guid: 2bfd6155055ecff4fab11277a78a9d50, type: 2}
-  nextMailChoice1: {fileID: 11400000, guid: 334b227eb67657f49adf66baa3d1e475, type: 2}
-  nextMailChoice2: {fileID: 11400000, guid: f0aa0c6b066d52b41998e6f3d6afae72, type: 2}
-  girlFace: {fileID: 853419395, guid: d19c0acca61115447834a776154f4b8b, type: 3}
+  previousMail: {fileID: 11400000, guid: 472e50cb75f8b23478943d59578e847c, type: 2}
+  nextMailChoice1: {fileID: 11400000, guid: 0e35594947f51ab488731ea6f39dd73b, type: 2}
+  nextMailChoice2: {fileID: 11400000, guid: 207104a6b0f80a74689f84f93a50ad06, type: 2}
+  girlFace: {fileID: 1480010619, guid: d19c0acca61115447834a776154f4b8b, type: 3}
   isGlitched: 1
   canAnswer: 1
   screamer: 0

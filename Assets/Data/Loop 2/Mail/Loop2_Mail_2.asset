@@ -24,4 +24,4 @@ MonoBehaviour:
   isGlitched: 0
   canAnswer: 1
   screamer: 0
-  timeToWaitForAnswer: 2
+  timeToWaitForAnswer: 1
