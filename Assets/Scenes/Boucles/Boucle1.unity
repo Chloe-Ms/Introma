@@ -809,6 +809,30 @@ PrefabInstance:
       propertyPath: mailGrid
       value: 
       objectReference: {fileID: 514517907}
+    - target: {fileID: 7770030957319326726, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+      propertyPath: mailListDay1.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 59c10cd0b80c85b42877a4728e538db0, type: 2}
+    - target: {fileID: 7770030957319326726, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+      propertyPath: mailListDay1.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7fb8d9af64996c949b811c6e89d7ee39, type: 2}
+    - target: {fileID: 7770030957319326726, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+      propertyPath: mailListDay1.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: c0de706f6c7854f499690920115c8d20, type: 2}
+    - target: {fileID: 7770030957319326726, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+      propertyPath: mailListDay1.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 70dad6cf071f2724c8a82dd5f9e3415c, type: 2}
+    - target: {fileID: 7770030957319326726, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+      propertyPath: mailListDay1.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 380d5025ef0abaa469505b626de9dade, type: 2}
+    - target: {fileID: 7770030957319326726, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
+      propertyPath: mailListDay1.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 44fb60fdfb4778a4b86e4c34f2d7da9e, type: 2}
     - target: {fileID: 7770030958799101764, guid: 998d9549dd034d64ea50efd1fc988285, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
