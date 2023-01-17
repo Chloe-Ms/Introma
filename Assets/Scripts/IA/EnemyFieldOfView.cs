@@ -116,9 +116,6 @@ public class EnemyFieldOfView : MonoBehaviour
             {
                 _enemyMovement.SetPlayerReference(target);
             }
-        } else
-        {
-            _enemyMovement.SetEnemyState(EnemyState.Walk);
         }
         
     }
