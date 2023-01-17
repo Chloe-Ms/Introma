@@ -37,7 +37,8 @@ public class TriggerDoor : MonoBehaviour
                 if (playerInteraction.IsKeyPicked)
                 {
                     _isDoorOpen = true;
-                    GameManager.Instance.NextDay();
+                    //GameManager.Instance.NextDay();
+                    GameManager.Instance.Win();
                     playerInteraction.IsKeyPicked = false; //TEMPORARY FIX - NextDay() should be called once
                 } else
                 {

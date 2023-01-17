@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c4fe79c81dc044f8fa14e20f82bcd9, type: 3}
   m_Name: Office_Mail_6
   m_EditorClassIdentifier: 
-  sender: Human Ressources
+  sender: HR
   subject: Missing employee
   content: "Hello everyone,\r\nOur colleague Rosemary Adams has been reported missing
     by the authorities on December 5th. If you have any information about her location

@@ -79,7 +79,7 @@ public class MailBoxManager : MonoBehaviour
         mailContent.text = mailData.Content;
         activeDisplayedMail = mailData;
         if (mailData.Screamer)
-            PlayScreamer();
+            StartCoroutine(PlayScreamer());
         if(mailData.GirlFace != null)
         {
             girlWindow.SetActive(true);
@@ -88,13 +88,14 @@ public class MailBoxManager : MonoBehaviour
         else
             girlWindow.SetActive(false);
     }
-    void PlayScreamer()
+    IEnumerator PlayScreamer()
     {
         this.GetComponent<ScreenSoundsManager>().ScreamerSound();
         screamer.SetActive(true);
-        triggerComputer.GetOffComputer();
         _enemy.SetActive(true);
         _cle.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        triggerComputer.GetOffComputer();
     }
     public void DisplayAnswers()
     {
