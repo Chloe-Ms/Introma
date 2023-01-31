@@ -31,6 +31,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (_enemyState != EnemyState.Attack)
         {
+            //Debug.Log("enemy state "+_enemyState);
             switch (_enemyState)
             {
                 case EnemyState.Walk:
@@ -46,6 +47,7 @@ public class EnemyMovement : MonoBehaviour
                 case EnemyState.Follow:
                     navMeshAgent.speed = _runningSpeed;
                     navMeshAgent.SetDestination(_player.transform.position);
+                    navMeshAgent.stoppingDistance = 1;
                     break;
             }
         }

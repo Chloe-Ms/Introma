@@ -44,20 +44,33 @@ public class EnemyFieldOfView : MonoBehaviour
     [SerializeField] LayerMask targetMask;
     [SerializeField] LayerMask obstacleMask;
 
-    public bool canSeePlayer;
+    [HideInInspector] public bool canSeePlayer;
+    Coroutine _routineCheckPlayer;
 
     private void Start()
     {
-        StartCoroutine(FOVRoutine());
+        _routineCheckPlayer = StartCoroutine(FOVRoutine());
+
+    }
+
+    void OnDisable()
+    {
+        StopCoroutine(_routineCheckPlayer);
+        _routineCheckPlayer = null;
+    }
+
+    void OnEnable()
+    {
+        _routineCheckPlayer = StartCoroutine(FOVRoutine());
     }
 
     private IEnumerator FOVRoutine()
     {
-        WaitForSeconds wait = new WaitForSeconds(0.2f);
+        //WaitForSeconds wait = 
 
         while (true)
         {
-            yield return wait;
+            yield return new WaitForSeconds(0.2f);
             FieldOfViewCheck();
         }
     }
@@ -78,6 +91,7 @@ public class EnemyFieldOfView : MonoBehaviour
 
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMask)) { // if player at a good distance
                     canSeePlayer = true;
+                    Debug.DrawRay(transform.position, directionToTarget);
                 }
                 else
                     canSeePlayer = false;
@@ -96,9 +110,10 @@ public class EnemyFieldOfView : MonoBehaviour
             if (Vector3.Angle(transform.forward, directionToTarget) < angleFront / 2) // if player in angle
             {
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
-
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMask))
-                { // if player at a good distance
+                {
+                    // if player at a good distance
+                    Debug.DrawRay(transform.position, directionToTarget);
                     canSeePlayer = true;
                 }
                 else
@@ -117,6 +132,6 @@ public class EnemyFieldOfView : MonoBehaviour
                 _enemyMovement.SetPlayerReference(target);
             }
         }
-        
+
     }
 }
